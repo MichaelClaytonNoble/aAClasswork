@@ -42,6 +42,7 @@ class KnightPathFinder
       pos_node = _q.shift
 
       pos_node.children = new_move_positions(pos_node.value).map{|pos| PolyTreeNode.new(pos)}
+      pos_node.children.map!{|child| child.parent = pos_node}
       pos_node.children.each{|child| _q << child} 
 
       @move_tree << pos_node
@@ -92,8 +93,13 @@ class KnightPathFinder
 
   def dfs(current_node, end_pos)
 
-   
+    return current_node if current_node.value == end_pos
+    return current_node if @@visited.include?(current_node)
 
+    @@visited << current_node
+    return current_node if current_node.children.empty?
+
+    
   end
 
  
