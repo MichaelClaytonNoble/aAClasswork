@@ -74,7 +74,7 @@ class KnightPathFinder
   
   end
 
-  def bfs(current_node, end_pos)
+  def dfs(current_node, end_pos)
     
     return current_node if current_node.value == end_pos
     return current_node if @@visited.include?(current_node)
@@ -84,20 +84,14 @@ class KnightPathFinder
     return current_node if current_node.children.empty?
     current_node.children.each do |next_node|
 
-      result = bfs(next_node, end_pos)
+      result = dfs(next_node, end_pos)
       return result if result.value == end_pos unless result == nil
     end
     nil
   end
 
 
-  def dfs(current_node, end_pos)
-
-    return current_node if current_node.value == end_pos
-    return current_node if @@visited.include?(current_node)
-
-    @@visited << current_node
-    return current_node if current_node.children.empty?
+  def bfs(current_node, end_pos)
 
     
   end
