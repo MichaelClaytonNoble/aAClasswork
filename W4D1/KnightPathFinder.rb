@@ -1,3 +1,4 @@
+require "byebug"
 require_relative "PolyTreeNode.rb"
 class KnightPathFinder
 
@@ -25,13 +26,27 @@ class KnightPathFinder
     @start_position = start_position #an array [ #, #]
     @considered_positions = [@start_position] #prevents infinitely moving between the same two positions
     @root_node = PolyTreeNode.new(start_position)
+    @move_tree = []
     build_move_tree
+    
   end
 
-
+ 
   #root of tree: knights starting position
   #children: next available and direct moves possible
   def build_move_tree
+
+    _q = [@root_node]
+
+    until _q.empty? do
+      pos_node = _q.shift
+
+      pos_node.children = new_move_positions(pos_node.value).map{|pos| PolyTreeNode.new(pos)}
+      pos_node.children.each{|child| _q << child} 
+
+      @move_tree << pos_node
+    end
+    print_move_tree
     
   end
 
@@ -52,18 +67,25 @@ class KnightPathFinder
     new_moves
   end
 
-  def kpf(end_position)
-
+  def inspect
+    @start_position
+    @considered_positions
   end
 
-  def inspect
-    @start_position.to_s
-    @considered_positions.to_s
+  def print_move_tree
+
+    @move_tree.each do |t|
+      p "node: " + t.value.to_s
+      p "children: " + t.children.to_s
+      p
+      p @move_tree.length
+
+    end
   end
 
 
 end 
 
-k = KnightPathFinder.new([3,4])
-
-p k.new_move_positions([3,4])
+k = KnightPathFinder.new([0,0])
+puts
+k.new_move_positions([4,6])
