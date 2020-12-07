@@ -57,9 +57,8 @@ class PolyTreeNode
   end
 
   def inspect
-    str = "parent= " 
-    @parent ? str+=@parent.value : str+='nil'
-    str+= ' \n ' + "children= " + @children.to_s
+    str = "Node= " 
+    str+= @value.to_s
     str
   end
 

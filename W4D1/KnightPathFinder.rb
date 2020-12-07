@@ -46,8 +46,6 @@ class KnightPathFinder
 
       @move_tree << pos_node
     end
-    print_move_tree
-    
   end
 
   #builds a tree representing all possible paths from @root_node
@@ -67,11 +65,38 @@ class KnightPathFinder
     new_moves
   end
 
-  def inspect
-    @start_position
-    @considered_positions
+ def find_path(end_pos)
+    @@visited = []
+    
+    # bfs(@move_tree.first, end_pos)
+    dfs(@move_tree.first, end_pos)
+  
   end
 
+  def bfs(current_node, end_pos)
+    
+    return current_node if current_node.value == end_pos
+    return current_node if @@visited.include?(current_node)
+
+    @@visited << current_node
+
+    return current_node if current_node.children.empty?
+    current_node.children.each do |next_node|
+
+      result = bfs(next_node, end_pos)
+      return result if result.value == end_pos unless result == nil
+    end
+    nil
+  end
+
+
+  def dfs(current_node, end_pos)
+
+   
+
+  end
+
+ 
   def print_move_tree
 
     @move_tree.each do |t|
@@ -83,9 +108,13 @@ class KnightPathFinder
     end
   end
 
+ def inspect
+    @start_position
+    @considered_positions
+  end
 
 end 
 
 k = KnightPathFinder.new([0,0])
-puts
-k.new_move_positions([4,6])
+# k.print_move_tree
+p k.find_path([0,0])
