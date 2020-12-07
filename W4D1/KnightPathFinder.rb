@@ -48,11 +48,20 @@ class KnightPathFinder
   #bfs
   def new_move_positions(pos)
 
-
   end
 
   def kpf(end_position)
 
   end
 
+  def inspect
+    @start_position.to_s
+    @considered_positions.to_s
+  end
+
+
 end 
+
+k = KnightPathFinder.new(0,0)
+
+p k
