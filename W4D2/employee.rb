@@ -19,7 +19,7 @@ end
 
 class Manager < Employee
 
-    def initialize
+    def initialize(name, title, salary, boss)
         super
         @employees = []
     end
@@ -29,7 +29,13 @@ class Manager < Employee
         total_salaries * multiplier
     end
 
-
+    def add_employee(employee)
+      if employee.is_a?(Array)
+        @employees += employee
+      else
+        @employees << employee
+      end
+    end
 
 end
 
@@ -37,7 +43,9 @@ end
 ned = Employee.new("Ned", "Founder", 1000000, nil)
 darren = Manager.new("Darren", "TA Manager", 78000, ned)
 shawna = Employee.new("Shawna", "TA", 12000, darren)
-davod = Employee.new("David", "TA", 10000, darren)
+david = Employee.new("David", "TA", 10000, darren)
+
+darren.add_employee([shawna, david])
 
 p ned.bonus(5) # => 500_000
 p darren.bonus(4) # => 88_000
