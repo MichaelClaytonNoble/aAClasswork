@@ -17,6 +17,11 @@ class Game
 
   private
   def swap_turn!
+    if @current_player == @players[1]
+      @current_player = @players[2]
+    else
+      @current_player = @players[1]
+    end
   end
 
 end
