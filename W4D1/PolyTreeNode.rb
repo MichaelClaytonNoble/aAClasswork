@@ -2,9 +2,9 @@ class PolyTreeNode
 
   attr_accessor :parent, :children, :value
 
-  def initialize(value)
+  def initialize(value, parent=nil)
     @value = value
-    @parent = nil 
+    @parent = parent 
     @children = []
   end
 
