@@ -36,19 +36,8 @@ class Piece
 
     end
 
-
     attr_reader :color
-
 end
-
-module Slideable
-
-end
-
-module Stepable
-
-end
-
 
 
 class NullPiece < Piece
