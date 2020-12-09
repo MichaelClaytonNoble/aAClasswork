@@ -24,7 +24,20 @@ class Piece
     end
 
     def valid_moves
-
+        valid_moves_arr = []
+        moves.each do |path|
+            
+            current_path = []
+            path.each do |pos|
+                r, c = pos
+                if @board[r][c].color == @color
+                    break
+                end
+                current_path << pos
+            end
+            valid_moves_arr << current_path
+        end
+        valid_moves_arr
     end
 
     def empty?
@@ -47,7 +60,11 @@ end
 class NullPiece < Piece
     include Singleton
 
+    attr_reader :color, :symbol
+
     def initialize
+        @color = nil
+        @symbol = nil
     end
 
 end

@@ -1,7 +1,7 @@
-
 require_relative "piece.rb"
 require_relative "modules.rb"
 require 'singleton'
+require_relative "board.rb"
 
 class Bishop < Piece
   include Slideable
@@ -19,10 +19,11 @@ class Bishop < Piece
   end
 end
 
-# board = Board.new
-b = Bishop.new("black", nil, [0,0])
+board = Board.new
+b = Bishop.new("black", board, [0,0])
+p b.valid_moves
 
-b.moves.each {|e| p e}
+
 class Rook < Piece
   include Slideable
   attr_reader :symbol, :pos
@@ -40,6 +41,12 @@ class Rook < Piece
 end
 
 
+
+
+
+
+
+
 class Queen < Piece
   include Slideable
   attr_reader :symbol, :pos
@@ -54,3 +61,5 @@ class Queen < Piece
   end
 
 end
+
+
