@@ -43,8 +43,8 @@ class Board
     #put piece placeholders in their starting positions
     def setup
         (0..1).each do |i| 
-            @rows[i].map! { |j| Piece.new}
-            @rows[-1-i].map! { |j| Piece.new}
+            @rows[i].map! { |j| Piece.new(nil, nil, nil)}
+            @rows[-1-i].map! { |j| Piece.new(nil, nil, nil)}
         end
     end
 
