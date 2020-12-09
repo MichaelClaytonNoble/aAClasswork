@@ -11,25 +11,34 @@
   end
 
   def moves
+    move_dirs.map {|dir| grow_unblocked_moves_in_dir(dir[0], dir[1]) }
+
+    # symbol = :Q
+
+    # case symbol #self.symbol
+    # when :B
+    #   diagonal_dirs.map {|dir| grow_unblocked_moves_in_dir(dir[0], dir[1]) }
+    # when :R
+    #   horizontal_dirs.map {|dir| grow_unblocked_moves_in_dir(dir[0], dir[1]) }
+    # when :Q
+    #   diagonal_dirs.map {|dir| grow_unblocked_moves_in_dir(dir[0], dir[1]) } + horizontal_dirs.map {|dir| grow_unblocked_moves_in_dir(dir[0], dir[1]) }
+    # end
+
   end
 
-  # private
+  private
   def move_dirs
-    horizontal_moves = []
-    diagonal_moves = []
-
-    diagonal_dirs.each {|dir| diagonal_moves << grow_unblocked_moves_in_dir(dir[0], dir[1]) }
-    horizontal_dirs.each {|dir| horizontal_moves << grow_unblocked_moves_in_dir(dir[0], dir[1]) }
-
-    [diagonal_dirs, horizontal_dirs]
+    diagonal_dirs + horizontal_dirs
   end
 
-  # private
+  private
   def grow_unblocked_moves_in_dir(dx,dy)
     potential_moves = []
     
-    new_pos = [0,0] #self.pos
+    new_pos = [4, 4]#self.pos
     r, c = new_pos
+    r += dx
+    c += dy
     while r >= 0 && r <= 7 && c >= 0 && c <= 7
       potential_moves << [r, c]
       r += dx
@@ -40,7 +49,7 @@
 
 # end
 
-move_dirs.each { |e| p e}
+moves.each { |e| p e}
 # p grow_unblocked_moves_in_dir(1,0)
 
 module Stepable

@@ -5,6 +5,8 @@ require_relative "modules.rb"
 class Bishop < Piece
   include Slideable
 
+  attr_reader :symbol
+
   def initialize 
     @symbol = :B
   end
@@ -20,7 +22,9 @@ end
 
 
 class Rook < Piece
-
+  include Slideable
+  attr_reader :symbol
+  
   def initialize 
     @symbol = :R
 
@@ -38,7 +42,8 @@ end
 
 
 class Queen < Piece
-    
+  include Slideable
+  attr_reader :symbol
   def initialize 
     @symbol = :Q
 
