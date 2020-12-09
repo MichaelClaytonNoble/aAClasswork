@@ -1,4 +1,5 @@
 
+require 'singleton'
 class Piece
 
     def initialize(color, board, pos)
