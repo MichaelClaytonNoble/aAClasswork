@@ -3,6 +3,7 @@ require_relative "piece.rb"
 require_relative "modules.rb"
 
 class Bishop < Piece
+  include Slideable
 
   def initialize 
     @symbol = :B
@@ -10,7 +11,6 @@ class Bishop < Piece
 
   private 
   def move_dirs
-    diagonal = [ [1, 1], [1, -1], [-1, -1], [-1, 1] ] 
 
 
   end
