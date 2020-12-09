@@ -2,6 +2,7 @@
 require_relative "piece.rb"
 require_relative "modules.rb"
 require 'singleton'
+
 class Bishop < Piece
   include Slideable
 

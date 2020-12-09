@@ -10,15 +10,21 @@ module Slideable
     DIAGONAL_DIRS
   end
 
+  #for each direction available to a piece
+  #generate all possible move locations on the board. 
   def moves
     move_dirs.map {|dir| grow_unblocked_moves_in_dir(dir[0], dir[1]) }
   end
 
+  #move_dirs is overwritten by piece subclass 
+  #It will be updated with which directions each piece can move
+  #horizontally or diagonally or both. 
   private
   def move_dirs
     diagonal_dirs + horizontal_dirs
   end
 
+  #generates an array of all potential moves in a single direction
   private
   def grow_unblocked_moves_in_dir(dx,dy)
     potential_moves = []
@@ -36,8 +42,7 @@ module Slideable
   end
 end
 
-# moves.each { |e| p e}
-# p grow_unblocked_moves_in_dir(1,0)
+
 
 # module Stepable
 
@@ -54,7 +59,8 @@ end
 
 # end
 
-p moves 
+p moves.length
+
 
 
 

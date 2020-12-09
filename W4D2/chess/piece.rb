@@ -12,6 +12,9 @@ class Piece
         "piece"
     end
 
+    #returns an array of places a Piece can move to. 
+    #each Piece will implement it's own moves method 
+    #unique to how each piece moves. 
     def moves
 
     end

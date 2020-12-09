@@ -14,7 +14,6 @@ end
 class Knight < Piece
   include Stepable
 
-
   def initialize(color, board, pos)
     @symbol = :k
     super
