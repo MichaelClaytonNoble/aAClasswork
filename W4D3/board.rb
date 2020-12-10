@@ -1,5 +1,6 @@
 require_relative 'piece.rb'
 require 'singleton'
+require_relative 'pieces.rb'
 
 class Board
 
@@ -38,22 +39,29 @@ class Board
     @board.each {|r| puts r.to_s}
   end
 
-  private
-  #add pieces to the board in their appropriate start positions
-  def setup
-    (0..1).each do |row|
-      @board[row].map!{|col| Piece.new}
-      @board[-1-row].map!{|col| Piece.new}
-    end
-  end
-
-  def out_of_bounds?(pos)
+  def self.out_of_bounds?(pos)
     r, c = pos
     r >= 8 || r < 0 || c >= 8 || c < 0
   end
 
+  private
+  #add pieces to the board in their appropriate start positions
+  #rows 0 and 1 are black
+  #rows 7 and 8 are white
+  def setup
+    (0..1).each do |row|
+      @board[row].map!{|col| Piece.new(:W)}
+      @board[-1-row].map!{|col| Piece.new(:B)}
+    end
+  end
 end
 
 b = Board.new
 
 b.print_board
+
+piece = Piece.new(:W,b,[0,0],:R)
+rook = Rook.new(:W,b,[4,4])
+
+
+rook.moves.each {|path| p path}
