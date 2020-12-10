@@ -47,9 +47,7 @@ end
 module Stepable
 
   def moves
-    # pos = [4,4]
     move_diffs.map{ |e| [e[0] + self.pos[0], e[1] + self.pos[1]] }
-    # move_diffs.map{ |e| [e[0] + self.pos[0], e[1] + self.pos[1]] }
   end
 
   private
