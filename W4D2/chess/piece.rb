@@ -2,6 +2,7 @@
 require 'singleton'
 class Piece
 
+    attr_reader :color
     def initialize(color, board, pos)
         @board = board
         @pos = pos
@@ -23,22 +24,27 @@ class Piece
 
     end
 
+    #
     def valid_moves
-        valid_moves_arr = []
-        moves.each do |path|
-            
-            current_path = []
-            path.each do |pos|
-                r, c = pos
-                if @board[r][c].color == @color
-                    break
-                end
-                current_path << pos
+
+        moves.map do |move|
+            cutoff = true
+            ret = []
+            move.each do |pos|       
+                cutoff = false if @board[pos].color != nil
+                ret << pos if cutoff 
             end
-            valid_moves_arr << current_path
+            if ret.length == move.length
+                ret
+            else
+                pos = move[ret.length]
+                ret << pos if @color != @board[pos].color
+            end
         end
-        valid_moves_arr
     end
+
+
+
 
     def empty?
 
@@ -53,7 +59,7 @@ class Piece
 
     end
 
-    attr_reader :color
+    
 end
 
 
@@ -65,6 +71,10 @@ class NullPiece < Piece
     def initialize
         @color = nil
         @symbol = nil
+    end
+
+    def inspect 
+        "NULL"
     end
 
 end

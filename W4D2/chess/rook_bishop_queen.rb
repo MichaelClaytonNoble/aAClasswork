@@ -20,7 +20,7 @@ class Bishop < Piece
 end
 
 board = Board.new
-b = Bishop.new("black", board, [0,0])
+b = Bishop.new("black", board, [1, 1])
 p b.valid_moves
 
 

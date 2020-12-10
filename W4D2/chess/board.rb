@@ -3,8 +3,9 @@ require_relative 'piece.rb'
 
 class Board
     def initialize
-        @rows = Array.new(8) {Array.new(8)}
+        
         null_piece = NullPiece.instance
+        @rows = Array.new(8) {Array.new(8,null_piece)}
         setup
     end
 
@@ -43,8 +44,8 @@ class Board
     #put piece placeholders in their starting positions
     def setup
         (0..1).each do |i| 
-            @rows[i].map! { |j| Piece.new(nil, nil, nil)}
-            @rows[-1-i].map! { |j| Piece.new(nil, nil, nil)}
+            @rows[i].map! { |j| Piece.new("white", nil, nil)}
+            @rows[-1-i].map! { |j| Piece.new("black", nil, nil)}
         end
     end
 
