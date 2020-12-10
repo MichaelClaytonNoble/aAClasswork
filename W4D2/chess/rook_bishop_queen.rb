@@ -19,9 +19,9 @@ class Bishop < Piece
   end
 end
 
-board = Board.new
-b = Bishop.new("black", board, [1, 1])
-p b.valid_moves
+# board = Board.new
+# b = Bishop.new("black", board, [1, 1])
+# p b.valid_moves
 
 
 class Rook < Piece
