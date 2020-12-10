@@ -29,7 +29,7 @@ class Piece
     space = @board[pos]
     case space.color
     when :W 
-      return !(:W == @color)
+      :W == @color ? return false : true
     when :B
       return !(:B == @color)
     end

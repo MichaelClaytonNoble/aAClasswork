@@ -61,7 +61,7 @@ b = Board.new
 b.print_board
 
 piece = Piece.new(:W,b,[0,0],:R)
-rook = Rook.new(:W,b,[4,4])
+rook = Rook.new(:W,b,[7,7])
 
 
 rook.moves.each {|path| p path}
