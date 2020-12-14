@@ -44,19 +44,26 @@ class IntSet
   end
 
   def insert(num)
+    @store[num % num_buckets] << num
   end
 
   def remove(num)
   end
 
   def include?(num)
-    [num].include?(num)
+    self[num].each {|a| return true if a == num}
+    false
   end
 
   private
-  def [](num)
+  def [](num)   #syntactic sugar not working...
     # optional but useful; return the bucket corresponding to `num`
     @store[num % num_buckets]
+  end
+
+  def []=(num, num1)   #syntactic sugar not working...
+    # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets] << num1
   end
 
   def num_buckets
