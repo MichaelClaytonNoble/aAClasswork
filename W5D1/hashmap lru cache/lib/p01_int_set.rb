@@ -5,9 +5,6 @@ class MaxIntSet
     @store = Array.new(max, false)
   end
 
-  def include?(num)
-  end
-
   def insert(num)
     if num < 0 || num > @max
       raise 'Out of bounds' 
@@ -15,8 +12,16 @@ class MaxIntSet
       @store[num] = true
     end
   end
+  
+  #verify that num is in range? 
+  def include?(num)
+    @store[num]
+  end
 
+  #maybe we should check num to make sure
+  #it is not out of bounds
   def remove(num)
+    @store[num] = false
   end
 
   
