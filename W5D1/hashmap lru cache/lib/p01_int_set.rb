@@ -6,7 +6,7 @@ class MaxIntSet
   end
 
   def insert(num)
-    if num < 0 || num > @max
+    if is_valid?(num)
       raise 'Out of bounds' 
     else
       @store[num] = true
@@ -15,7 +15,7 @@ class MaxIntSet
   
   #verify that num is in range? 
   def include?(num)
-    @store[num]
+    @store[num] if validate!(num)
   end
 
   #maybe we should check num to make sure
@@ -24,14 +24,16 @@ class MaxIntSet
     @store[num] = false
   end
 
-  
 
   private
 
   def is_valid?(num)
+    num < 0 || num > @max
   end
 
+  #ask TA what this is for. 
   def validate!(num)
+    num.is_a?(Integer)
   end
 end
 
@@ -48,12 +50,13 @@ class IntSet
   end
 
   def include?(num)
+    [num].include?(num)
   end
 
   private
-
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets]
   end
 
   def num_buckets
