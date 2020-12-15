@@ -49,8 +49,8 @@ describe IntSet do
     end
 
     it "should return true if the number has been inserted" do
-      set.insert(1)
-      expect(set).to include(1)
+      set.insert(-1)
+      expect(set).to include(-1)
     end
   end
 

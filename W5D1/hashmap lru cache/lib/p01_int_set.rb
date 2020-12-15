@@ -48,6 +48,7 @@ class IntSet
   end
 
   def remove(num)
+    self[num].delete(num)
   end
 
   def include?(num)
@@ -56,14 +57,9 @@ class IntSet
   end
 
   private
-  def [](num)   #syntactic sugar not working...
+  def [](num)   #syntactic sugar
     # optional but useful; return the bucket corresponding to `num`
     @store[num % num_buckets]
-  end
-
-  def []=(num, num1)   #syntactic sugar not working...
-    # optional but useful; return the bucket corresponding to `num`
-    @store[num % num_buckets] << num1
   end
 
   def num_buckets
@@ -80,18 +76,25 @@ class ResizingIntSet
   end
 
   def insert(num)
+    @store[num % num_buckets] << num unless include?(num)
   end
 
   def remove(num)
   end
 
   def include?(num)
+     self[num].include?(num)
+  end
+
+  def count
+    @store.map{|bucket| bucket.length}.sum
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets]
   end
 
   def num_buckets
