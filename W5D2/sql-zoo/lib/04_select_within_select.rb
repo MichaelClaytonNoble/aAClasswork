@@ -10,9 +10,10 @@
 
 require_relative './sqlzoo.rb'
 
-# A note on subqueries: we can refer to values in the outer SELECT within the
-# inner SELECT. We can name the tables so that we can tell the difference
-# between the inner and outer versions.
+# A note on subqueries: we can refer to values in the outer 
+#SELECT within the
+# inner SELECT. We can name the tables so that we can tell 
+#the difference between the inner and outer versions.
 
 def example_select_with_subquery
   execute(<<-SQL)
@@ -33,8 +34,22 @@ def example_select_with_subquery
 end
 
 def larger_than_russia
-  # List each country name where the population is larger than 'Russia'.
+  # List each country name where the population is larger than 
+  #'Russia'.
   execute(<<-SQL)
+  SELECT
+    name
+  FROM
+    countries
+  WHERE
+    population > (
+      SELECT
+        population
+      FROM
+        countries
+      WHERE
+        name='Russia'
+        )
   SQL
 end
 
