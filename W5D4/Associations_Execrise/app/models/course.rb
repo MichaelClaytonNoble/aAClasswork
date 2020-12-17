@@ -1,6 +1,5 @@
 class Course < ApplicationRecord
 
-
   has_many :enrollments,
     primary_key: :id,
     foreign_key: :course_id,
@@ -15,4 +14,8 @@ class Course < ApplicationRecord
     foreign_key: :prereq_id,
     class_name: :Course
 
+  belongs_to :instructors,
+    primary_key: :id,
+    foreign_key: :instructor_id,
+    class_name: :User
 end
