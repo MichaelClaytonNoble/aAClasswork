@@ -5,8 +5,10 @@ def it_was_ok
   #
   # We can use ranges (a..b) inside a where method.
   #
-  # Find the id, title, and score of all movies with scores between 2 and 3
-
+  # Find the id, title, and score of all movies with scores between 
+  # 2 and 3
+  #SELECT "movies"."id", "movies"."title", "movies"."score" FROM "movies" WHERE ("movies"."score" BETWEEN $1 AND $2) 
+  Movie.select(:id, :title, :score).where(score: 2..3)
 end
 
 def harrison_ford
@@ -21,6 +23,12 @@ def harrison_ford
   # Find the id and title of all movies in which Harrison Ford
   # appeared but not as a lead actor
 
+  #SELECT "movies"."id", "movies"."title" FROM "movies"
+  Movie
+  .select(:id, :title)
+  .joins(:actors)
+  .where(actors: {name: 'Harrison Ford'})
+  .where.not(castings: {ord: 1})
 end
 
 def biggest_cast
