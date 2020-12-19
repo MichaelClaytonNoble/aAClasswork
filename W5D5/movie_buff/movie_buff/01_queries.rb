@@ -86,6 +86,6 @@ def movie_names_before_1940
   # directly into a Ruby Array instead of an ActiveRecord object. This can
   # improve performace for larger queries.
   #
-    # Use pluck to find the title of all movies made before 1940.
-  Movie.where('yr < 1940').pluck(:title)
+  # Use pluck to find the title of all movies made before 1940.
+
 end
