@@ -7,6 +7,13 @@ def it_was_ok
   #
   # Find the id, title, and score of all movies with scores between 2 and 3
 
+  # SELECT movies.id, movies.title, movies.score
+  # FROM movies
+  # WHERE movies.score BETWEEN 2 AND 3
+
+  Movie
+  .select(:id, :title, :score)
+  .where(score: (2..3))
 end
 
 def harrison_ford
@@ -21,6 +28,17 @@ def harrison_ford
   # Find the id and title of all movies in which Harrison Ford
   # appeared but not as a lead actor
 
+  # SELECT movies.id, movies.title, castings.ord
+  # FROM movies
+  # JOIN castings ON movies.id = castings.movie_id
+  # JOIN actors ON castings.actor_id = actors.id
+  # WHERE actors.name LIKE 'Harrison Ford' AND castings.ord != 1
+  Movie
+  .select(:id, :title).distinct
+  .joins(:actors)
+  .where.not(castings: {ord: 1})
+  .where(actors: { name: 'Harrison Ford'})
+  
 end
 
 def biggest_cast
@@ -38,6 +56,21 @@ def biggest_cast
   # Find the id and title of the 3 movies with the
   # largest casts (i.e most actors)
 
+  # SELECT movies.id, movies.title, COUNT(actors) as num_actors
+  # FROM movies
+  # JOIN castings ON movies.id = castings.movie_id
+  # JOIN actors ON castings.actor_id = actors.id
+  # GROUP BY movies.id
+  # ORDER BY num_actors DESC
+  # LIMIT 3
+
+  Movie
+    .select(:id, :title)
+    .joins(:actors)
+    .group(:id)
+    .order('COUNT(actors) DESC')
+    .limit(3)
+
 end
 
 def directed_by_one_of(them)
@@ -53,6 +86,17 @@ def directed_by_one_of(them)
   #
   # Find the id and title of all the movies directed by one of 'them'.
 
+
+  # SELECT movies.id, movies.title
+  # FROM movies
+  # JOIN actors ON movies.director_id = actors.id
+  # WHERE actors.name IN ('George Lucas', 'Steven Spielberg')
+  Movie
+  .select(:id, :title)
+  .joins(:director)
+  .where(actors: {name: them})
+
+
 end
 
 def movie_names_before_1940
@@ -66,5 +110,14 @@ def movie_names_before_1940
   # improve performace for larger queries.
   #
   # Use pluck to find the title of all movies made before 1940.
+
+
+  # SELECT movies.title
+  # FROM movies
+  # WHERE movies.yr < 1940
+  Movie
+    .select(:title)
+    .where('yr < 1940')
+    .pluck(:title)
 
 end
