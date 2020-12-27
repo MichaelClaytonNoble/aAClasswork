@@ -1,0 +1,97 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2577
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fnil\fcharset0 Georgia;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red10\green92\blue255;
+\red0\green0\blue0;\red246\green246\blue239;\red34\green34\blue34;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c46667\c100000;
+\cssrgb\c0\c0\c0\c7451;\cssrgb\c97255\c97255\c94902;\cssrgb\c17647\c17647\c17647;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid2\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww37900\viewh19680\viewkind0
+\deftab720
+\pard\pardeftab720\li690\ri690\sl860\sa400\partightenfactor0
+
+\f0\b\fs72 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Movie Buff\
+\pard\pardeftab720\li690\ri690\sl600\sa400\partightenfactor0
+
+\f1\b0\fs40 \cf2 For this project you will be writing ActiveRecord queries against the actors, movies, and castings tables from the SQL Zoo project. We've written rspec tests to check that you both return the correct results and query the database the correct number of times. Please run them to check your work.\
+It may be helpful to refer to the\'a0{\field{\*\fldinst{HYPERLINK "https://assets.aaonline.io/fullstack/sql/projects/sqlzoo/solution.zip"}}{\fldrslt \cf4 \strokec4 SQL Zoo solutions}}\'a0for guidance as you work through these problems. Also make sure to reference the past Active Record readings as well as the\'a0{\field{\*\fldinst{HYPERLINK "http://guides.rubyonrails.org/active_record_querying.html"}}{\fldrslt \cf4 \strokec4 ActiveRecord docs}}.\
+\pard\pardeftab720\li690\ri690\sl720\sa400\partightenfactor0
+
+\f0\b\fs60 \cf2 Learning Goals\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa100\partightenfactor0
+\ls1\ilvl0
+\f1\b0\fs40 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Be able to write complicated ActiveRecord queries\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sa100\partightenfactor0
+\ls1\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u9702 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Become familiar with more of ActiveRecord's functionalities\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa100\partightenfactor0
+\ls1\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Know how to test and debug ActiveRecord queries\cb1 \
+\pard\pardeftab720\li690\ri690\sl720\sa400\partightenfactor0
+
+\f0\b\fs60 \cf2 \cb3 Setup\
+\pard\pardeftab720\li690\ri690\sl600\sa400\partightenfactor0
+
+\f1\b0\fs40 \cf2 First make sure Postgres is running.\
+Then download the\'a0{\field{\*\fldinst{HYPERLINK "https://assets.aaonline.io/fullstack/sql/projects/movie_buff/skeleton.zip?raw=true"}}{\fldrslt \cf4 \strokec4 skeleton}}. Run\'a0
+\f2 \cb5 bundle install
+\f1 \cb3 \'a0and\'a0
+\f2 \cb5 ./setup
+\f1 \cb3 \'a0to populate the database.\
+If you'd like to run specs for a particular problem, simply append the corresponding line number to the spec file you want to run.\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\fs32 \cf6 \cb7 \strokec6 bundle exec rspec spec/01_queries_spec.rb:66\
+\pard\pardeftab720\li690\ri690\sl600\sa400\partightenfactor0
+
+\f1\fs40 \cf2 \cb3 \strokec2 You'll be working in the\'a0
+\f2 \cb5 skeleton/movie_buff/
+\f1 \cb3 \'a0folder. Do the problems in\'a0
+\f2 \cb5 01_queries.rb
+\f1 \cb3 \'a0before moving on to\'a0
+\f2 \cb5 02_queries.rb
+\f1 \cb3 \'a0and then\'a0
+\f2 \cb5 03_queries.rb
+\f1 \cb3 . Information on the tables you will be working with can be found below:\
+\pard\pardeftab720\sl480\partightenfactor0
+
+\f3\fs32 \cf6 \cb7 \strokec6 # == Schema Information\
+#\
+# Table name: actors\
+#\
+#  id          :integer      not null, primary key\
+#  name        :string\
+#\
+# Table name: movies\
+#\
+#  id          :integer      not null, primary key\
+#  title       :string\
+#  yr          :integer\
+#  score       :float\
+#  votes       :integer\
+#  director_id :integer\
+#\
+# Table name: castings\
+#\
+#  id          :integer      not null, primary key\
+#  movie_id    :integer      not null\
+#  actor_id    :integer      not null\
+#  ord         :integer\
+\pard\pardeftab720\li690\ri690\sl720\sa400\partightenfactor0
+
+\f0\b\fs60 \cf2 \cb3 \strokec2 Notes on building ActiveRecord Queries\
+\pard\pardeftab720\li690\ri690\sl600\sa400\partightenfactor0
+
+\f1\b0\fs40 \cf2 You can manually test queries in the\'a0
+\f2 \cb5 rails console
+\f1 \cb3 . By chaining\'a0
+\f2 \cb5 to_sql
+\f1 \cb3 \'a0on the end of a query you can inspect the SQL query ActiveRecord makes under the hood. This is particularly useful for debugging. ActiveRecord also has a method\'a0
+\f2 \cb5 as_json
+\f1 \cb3 \'a0that provides the jsonified output of a query.\
+Also, remember that ActiveRecord can join associations defined on the model. We've gone ahead and defined associations for actors, castings, and movies for you. Please take a look at these associations before you begin.\
+Have fun and good luck!\
+}
