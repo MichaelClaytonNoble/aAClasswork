@@ -43,11 +43,60 @@ def costars(name)
   # appeared with.
   # Hint: use a subquery
 
+  movie_list = Actor
+  .select('castings.movie_id')
+  .joins(:castings)
+  .where(name: name)
+  .pluck('castings.movie_id')
+  Actor
+    .select(:name).distinct
+    .joins(:castings)
+    .where(castings: {movie_id: movie_list})
+    .where.not(name: name)
+    .pluck(:name)
+    .uniq
+
+  # SELECT actors.name
+  # FROM actors
+  # JOIN castings ON actors.id = castings.actor_id
+  # WHERE castings.movie_id IN (
+  #   SELECT castings.movie_id
+  #   FROM actors
+  #   JOIN castings ON actors.id = castings.actor_id
+  #   WHERE actors.name LIKE 'Julie Andrews'
+  # ) AND actors.name != 'Julie Andrews'
+
+  # SELECT actors.name
+  # FROM actors
+  # JOIN castings ON actors.id = castings.actor_id
+  # JOIN movies ON movies.id = castings.movie_id
+  # WHERE movies.title IN (
+  #   SELECT movies.title
+  #   FROM actors
+  #   JOIN castings ON actors.id = castings.actor_id
+  #   JOIN movies ON movies.id = castings.movie_id 
+  #   WHERE actors.name LIKE 'Julie Andrews'
+  # ) AND actors.name != 'Julie Andrews'
+
+
+
 end
 
 def actor_out_of_work
   # Find the number of actors in the database who have not appeared in a movie
+  
+  # SELECT COUNT(*)
+  # FROM castings
+  # RIGHT JOIN actors ON actors.id = castings.actor_id
+  # WHERE castings.actor_id IS NULL 
 
+  Actor
+    .select(:name)
+    .joins('LEFT OUTER JOIN castings on castings.actor_id = actors.id')
+    .where(castings: { movie_id: nil })
+    .count
+
+    
 end
 
 def starring(whazzername)
