@@ -1,2 +1,52 @@
 /* PHASE 1: Header */
 
+
+body {
+    font-weight: normal;
+    font-family: roboto, sans-serif;
+}
+
+.header{
+    background-color: #f00;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    align-content:center;
+}
+.header
+.header-logo{
+    float:left; 
+    align-content:center;
+    font-weight: bold;
+    border-right: 1px solid #ccc;
+    padding: 10px 20px;
+}
+
+.header-nav{
+    margin: auto;
+    font-size: 16px;
+    width: 900px;
+    display: flex;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.header-list{
+    margin-left:auto;
+    float: right;
+    display: flex;
+}
+
+ul.header-list li{
+    justify-self: right;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+
+.header-list li a {
+    display: block;
+    padding: 10px 20px;
+}
+ul.header-list li:hover, h1.header-logo:hover{
+    background-color:black; 
+}
