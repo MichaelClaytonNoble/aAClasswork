@@ -8,11 +8,13 @@ class UsersController < ApplicationController
 
   def create
   
-    debugger
     user = User.new(user_params)
     # replace the `user_attributes_here` with the actual attribute keys
-    user.save!
-    render json: user
+    if user.save
+        render json: user
+    else
+        render json: user.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def show
