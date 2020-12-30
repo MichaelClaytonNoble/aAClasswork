@@ -50,3 +50,9 @@ ul.header-list li{
 ul.header-list li:hover, h1.header-logo:hover{
     background-color:black; 
 }
+
+.badge span{
+    border-radius: 100%;
+    background-color: black;
+    padding:3px 7px 3px 7px;
+}
