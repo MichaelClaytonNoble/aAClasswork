@@ -18,8 +18,18 @@ class UsersController < ApplicationController
   end
 
   def show
+    user = User.find_by(id: params[:id])
+    if user.nil?
+      render json: "User not found"
+    else
+      render json: user
+    end
+  end
 
-    render json: params
+  def destroy
+    user = User.find_by(id: params[:id])
+    user.destroy
+    render json: user
   end
 
   def user_params
