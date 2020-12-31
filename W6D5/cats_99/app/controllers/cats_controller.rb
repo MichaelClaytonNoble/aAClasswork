@@ -6,7 +6,8 @@ class CatsController < ApplicationController
   end
 
   def show
-    kitty = Cat.find_by(id: params[:id])
+    @kitty = Cat.find_by(id: params[:id])
     
+    render :show
   end
 end
