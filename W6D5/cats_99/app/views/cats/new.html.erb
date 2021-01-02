@@ -1,15 +1,8 @@
-<form action="new_cats_url" method="Get">
-  <label for="name">Name:
-    <input type="text" name="cat[name]">
-  </label>
 
-  <label for="sex">Sex:</label>
+<p> Enter Cat Information </p>
 
-  <input type="radio" id="male" name="cat[sex]" value="M">
-  <label for="male">Male</label><br>
-
-  <input type="radio" id="female" name="cat[sex]" value="F">
-  <label for="female">Female</label><br>
-
+<form action="/cats" method="POST">
+  <%=render "cat_form", {cat_form: @kitty, type: :new}  %>
+  <input type="submit" value="Create Cat">
 
 </form>

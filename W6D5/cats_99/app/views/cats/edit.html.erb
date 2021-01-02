@@ -1,0 +1,7 @@
+
+<form action=<%=update_cat_url(@kitty.id)%> method="POST">
+    <input type="hidden" name="_method" value = "PATCH">
+<%=render "cat_form", {cat_form: @kitty, type: :edit}  %>
+<input type="submit" value="Create Cat">
+
+</form>

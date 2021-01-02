@@ -3,13 +3,13 @@
 <table>
     <thead>
         <tr>
-            <th colspan="2"> <%=@kitty.id %> </th>
+            <th colspan="2"> <%=@kitty.name%> </th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Name</td>
-            <td><%=@kitty.name %></td>
+            <td>Id</td>
+            <td><%=@kitty.id %></td>
         </tr>
         <tr>
             <td>Color</td>
@@ -31,3 +31,7 @@
         </tr>
     </tbody>
 </table>
+
+<form action="<%=display_cat_url%>" method="GET">
+    <input type="submit" value="Return to All Cats">
+</form>
