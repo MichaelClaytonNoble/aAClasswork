@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post '/cats', to:'cats#create', as: 'create_cat'
 
   get '/cats/:id', to: 'cats#show', as: 'show_cat'
-  resources :cats, only: [:edit]
   patch '/cats/:id', to: 'cats#update', as: 'update_cat'
+  resources :cats, only: [:edit]
   
   delete '/cats/:id', to: 'cats#delete', as: 'delete_cat'
 end

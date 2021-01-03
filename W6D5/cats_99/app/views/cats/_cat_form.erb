@@ -1,4 +1,13 @@
 
+<%action_url = (type == :new ) ? create_cat_url : update_cat_url(@kitty.id) %>
+  <% submit_button = "Create Cat" %>
+
+  <form action="<%=action_url%>" method="POST">
+    <% if @kitty.persisted? %>
+      <input type="hidden" name="_method" value = "PATCH">
+      <%submit_button = "Update Cat"%>
+    <% end %>
+
   <label>Name:
     <input type="text" name="cat[name]" value="<%=@kitty.name%>"">
   </label>
@@ -38,3 +47,6 @@
   <br><br>
   <label> Enter a description: </label><br>
   <textarea name="cat[description]" rows="10" cols="30"><%=@kitty.description %></textarea><br>
+
+<input type="submit" value="<%=submit_button%>"%>
+</form>

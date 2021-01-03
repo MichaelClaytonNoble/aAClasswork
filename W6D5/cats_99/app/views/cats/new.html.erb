@@ -1,8 +1,5 @@
 
 <p> Enter Cat Information </p>
 
-<form action="/cats" method="POST">
-  <%=render "cat_form", {cat_form: @kitty, type: :new}  %>
-  <input type="submit" value="Create Cat">
 
-</form>
+  <%=render "cat_form", {cat_form: @kitty, type: :new}  %>
