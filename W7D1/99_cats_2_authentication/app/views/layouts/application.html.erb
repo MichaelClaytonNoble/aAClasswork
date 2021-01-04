@@ -9,23 +9,21 @@
   </head>
 
   <body>
-    <h1>Welcome, <%= @current_user.username %></h1>
-
-    <% if @current_user.nil? %>
-      <% _action_value = session_url %>
-      <% _submit_value = "login" %>
-    <% else %>
-      <% _action_value = new_user_url %>
-      <% _submit_value = "sign up" %>
-    <% end %>
-    <form action="<%=_action_value%>" method="POST">
 
 
-      <input type="submit">
 
+  <% unless current_user.nil? %>
+    <h2>Welcome, <%=current_user.username %>!</h2>
 
-    </form>
-    <% end %>
+	<form action="<%=session_url%>" method="POST">
+		<input type="hidden" name = "_method" value="DELETE">
+		<input type="submit" value="LOG OUT">
+	</form>
+  <% else %>
+    <a href="<%=new_session_url%>">
+      <input type="button" value="LOG IN">
+    </a>
+  <% end %>
 
     <%= yield %>
   </body>
