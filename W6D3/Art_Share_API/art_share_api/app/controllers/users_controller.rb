@@ -31,6 +31,16 @@ class UsersController < ApplicationController
     render json: user
   end
 
+  def update
+    user = User.find_by(id: params[:id])
+    user.update(user_params)
+    if user.save
+      render json: user
+    else
+      render json: user.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   def user_params
     #require that we have a top level key of :user
     params.require(:user).permit(:username)
