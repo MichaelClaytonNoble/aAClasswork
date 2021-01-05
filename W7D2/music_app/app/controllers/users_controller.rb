@@ -13,13 +13,24 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      ##### log the user in #####
       login(@user)
-      redirect_to new_users_url #update this with correct page
+      redirect_to user_url(@user) #update this with correct page
     else
+      flash.now[:error] = ["INVALID_CREDENTIALS"]
       render :new
     end
 
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+
+    if @user
+      render :show
+    else
+      flash[:error] = ["User not found"]
+      redirect_to new_user_url #update this with correct page
+    end
   end
 
   private
