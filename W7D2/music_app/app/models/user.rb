@@ -21,8 +21,9 @@ class User < ApplicationRecord
   #runs ensure_session_token right after initialize
   after_initialize :ensure_session_token
 
+  attr_reader :password
   # runs ensure_session_token right before User.save 
-  # before_validation :ensure_session_token
+  #  before_validation :password
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64
