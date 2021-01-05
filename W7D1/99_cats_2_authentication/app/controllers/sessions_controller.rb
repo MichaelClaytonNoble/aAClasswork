@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   def destroy
     current_user.reset_session_token!
     session[:session_token] = nil
+    @current_user = nil
     redirect_to cats_url
   end
 
