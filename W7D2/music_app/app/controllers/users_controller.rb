@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to user_url(@user) #update this with correct page
     else
-      flash.now[:error] = ["INVALID_CREDENTIALS"]
+      flash.now[:error] = @user.errors.full_messages
       render :new
     end
 

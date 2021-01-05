@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if @user
       login(@user)
       redirect_to user_url(@user) #update this with correct page
-    else
+    else            #= @user.error.full_message
       flash[:error] = ["INVALID CREDENTIALS"]
       redirect_to new_session_url
     end
