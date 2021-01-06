@@ -11,6 +11,8 @@
 #
 FactoryBot.define do
   factory :user do
-    
+    username {Faker::Movies::HarryPotter.character}
+    password_digest{'xxx'}
+    session_token{'xxx'}
   end
 end
