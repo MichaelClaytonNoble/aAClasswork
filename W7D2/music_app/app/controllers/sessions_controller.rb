@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
+  before_action :require_logged_out, only:[:new]
 
   def new
-
+    render :new
   end
 
   def create
@@ -12,10 +13,15 @@ class SessionsController < ApplicationController
     if @user
       login(@user)
       redirect_to user_url(@user) #update this with correct page
-    else            #= @user.error.full_message
+    else                      
       flash[:error] = ["INVALID CREDENTIALS"]
       redirect_to new_session_url
     end
+  end
+
+  def destroy
+    logout
+    redirect_to new_session_url
   end
 
   

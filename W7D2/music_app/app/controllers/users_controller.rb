@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+    before_action :require_logged_in, only:[:show]
+    before_action :require_logged_out, only:[:new]
 
+  def index
+    redirect_to new_session_url
+  end
 
   def new
     @user = User.new
@@ -9,9 +14,7 @@ class UsersController < ApplicationController
   #sign a user up
   #then log in 
   def create
-   
     @user = User.new(user_params)
-
     if @user.save
       login(@user)
       redirect_to user_url(@user) #update this with correct page
@@ -19,10 +22,10 @@ class UsersController < ApplicationController
       flash.now[:error] = @user.errors.full_messages
       render :new
     end
-
   end
 
   def show
+
     @user = User.find_by(id: params[:id])
 
     if @user

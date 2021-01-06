@@ -39,11 +39,13 @@
   
 
     <%= yield %>
-   
+    <br>
+    <div class="errors">
     <% if flash[:error] %> 
 	    <% flash[:error].each do | error| %>
 	    <%= error %> <br>
       <% end %>
     <% end %>
+    </div>
   </body>
 </html>
