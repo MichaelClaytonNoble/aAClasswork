@@ -1,0 +1,23 @@
+
+~<%#  %>
+<% if type==:new%>
+  <% action_url = bands_url %>
+<% else %>
+  
+<% end %>
+
+
+<form action="<%=action_url%>" method="POST">
+  
+  <input type="hidden" name="_method" value="<%=http_method%>">
+  <%=auth_token%>
+
+  <p>
+    <label for='band_name'>Name</label>
+    <input id='band_name' type="text" name="band[name]" value="<%=band.name%> ">
+  </p>
+
+  <input type="submit" value="<% type=edit ? "Update" : "Create" %>" >
+
+
+</form>
