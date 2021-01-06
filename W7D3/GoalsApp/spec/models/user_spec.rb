@@ -15,11 +15,17 @@ require 'rails_helper'
 #############------ VALIDATIONS -----################
 RSpec.describe User, type: :model do
   let(:incomplete_user) {User.new()}
-
+ 
   it 'validates the presence of username' do 
     expect(incomplete_user).to_not be_valid
   end
+  it { should validate_presence_of(:password_digest)}
+  it { should validate_presence_of(:session_token)}
+  #it { should validate_length_of(:password).is_at_least(6)}
   
   subject(:person){FactoryBot.create(:user)}
+  
   it { should validate_uniqueness_of(:username)}
+  it { should validate_uniqueness_of(:session_token)}
+
 end
