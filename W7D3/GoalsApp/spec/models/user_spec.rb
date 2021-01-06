@@ -10,7 +10,11 @@
 #  updated_at      :datetime         not null
 #
 require 'rails_helper'
-
+#validations section
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:incomplete_user) {User.new()}
+  it 'validates the presence of username' do 
+    expect(incomplete_user).to_not be_valid
+  end
+
 end
