@@ -1,16 +1,16 @@
 
-~<%#  %>
 <% if type==:new%>
   <% action_url = bands_url %>
 <% else %>
-  
+  <% action_url = band_url(band) %>
 <% end %>
 
 
 <form action="<%=action_url%>" method="POST">
-  
-  <input type="hidden" name="_method" value="<%=http_method%>">
-  <%=auth_token%>
+  <% if type == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <%= auth_token %>
 
   <p>
     <label for='band_name'>Name</label>

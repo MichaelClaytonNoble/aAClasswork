@@ -1098,3 +1098,25 @@ Processing by BandsController#index as HTML
 Completed 200 OK in 322ms (Views: 320.4ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/bands" for ::1 at 2021-01-05 17:00:37 -0800
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (3.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 181ms (Views: 138.3ms | ActiveRecord: 34.3ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-01-05 17:00:43 -0800
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (26.2ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant ActionView::CompiledTemplates::POST:
+  app/views/bands/new.html.erb:4:in `_app_views_bands_new_html_erb__2186463810540369441_70166476111220'
+  app/controllers/bands_controller.rb:14:in `new'
+
+Started POST "/__better_errors/6cf238613b268855/variables" for ::1 at 2021-01-05 17:00:44 -0800
