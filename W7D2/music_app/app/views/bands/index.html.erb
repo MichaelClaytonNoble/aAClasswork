@@ -1,6 +1,8 @@
 
 
-<h3>Band Names!</h3>
-<% @bands.each do |band| %>
-  Name: <%= band.name %> <br>
-<% end %>
+<h3>Bands Home Page!</h3>
+
+<%=render "display_bands", bands: @bands, type: :index%>
+<br><br><br>
+
+<a href="<%=new_band_url%>">Add new band</a>

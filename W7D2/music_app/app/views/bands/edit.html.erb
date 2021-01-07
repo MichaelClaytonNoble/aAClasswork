@@ -1,3 +1,10 @@
-<h1> Update Band Info!!!</h1>
+<h1> Update <%=@band.name%>'s band name!</h1>
 
 <%= render "form", band: @band, type: :edit %>
+
+
+<form action="<%=band_url(@band)%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  
+  <input type="submit" value="DELETE">
+</form>

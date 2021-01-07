@@ -1,0 +1,11 @@
+
+<% if @albums.empty? %>
+<%    display = "This band has no albums"  %>
+<% else %>
+<%    display = @albums.first.band.name %>
+<%    display += " Discography" %>
+<% end %>
+
+<h1> <%= display %> </h1>
+
+<%=render "display_album", albums: @albums%>

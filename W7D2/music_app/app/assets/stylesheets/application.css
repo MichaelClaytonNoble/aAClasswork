@@ -17,34 +17,32 @@
 
  /* @import "reset.css"; */
 
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 
-* {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+
 header > h1 {
   font-size: 45px;
-  font-family: inherit;
+  font-family: 'Yellowtail';
 }
 
-.header_div {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+nav.button_navigation {
+    display: flex;
+    flex-direction: column;
+    justify-self: right;
+    margin-right: 0px;
+    margin-left: auto;
+    align-items:flex-end;
 }
 
-label, input {
-  display: block;
+div.header_div {
+    display: flex;
 }
 
+nav.button_navigation > a {
+    position: relative;
+}
 
+.render_page{
 
-.header_div > .button_navigation {
-  justify-self: right;
-  align-self: flex-end;
-  justify-content: right;
-  justify-items: right;
-  align-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
 }

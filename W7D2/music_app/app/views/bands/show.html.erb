@@ -1,0 +1,8 @@
+
+
+<h1> <%=@band.first.name%> </h1>
+
+<%=render "display_bands", bands: @band, type: :show%>
+
+<br><br>
+<a href="<%=edit_band_url%>">Edit this band name</a>

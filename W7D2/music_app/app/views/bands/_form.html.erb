@@ -1,8 +1,10 @@
 
 <% if type==:new%>
   <% action_url = bands_url %>
+  <% button_value = "Add Band"%>
 <% else %>
   <% action_url = band_url(band) %>
+  <%button_value = "Edit Band"%>
 <% end %>
 
 
@@ -14,10 +16,10 @@
 
   <p>
     <label for='band_name'>Name</label>
-    <input id='band_name' type="text" name="band[name]" value="<%=band.name%> ">
+    <input id='band_name' type="text" name="band[name]">
   </p>
 
-  <input type="submit" value="<% type=edit ? "Update" : "Create" %>" >
+  <input type="submit" value="<%=button_value%>">
 
 
 </form>

@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :index] 
   resource :session, only: [:new, :create, :destroy]
-  resources :bands
+  resources :bands do
+    resources :albums, only: [:create]
+  end
 
-  # get '/:X', to: 'application#catch'
-  # get '/:X/:X', to: 'application#catch'
-  # get '/:X/:X/:X', to: 'application#catch'
+  get '/bands/:band_id/bands_albums', to: 'albums#show_bands_albums', as: 'show_bands_albums'
+
+  resources :albums, only: [:create, :edit, :show, :update, :destroy]
 
   root controller: :users, action: :new
 

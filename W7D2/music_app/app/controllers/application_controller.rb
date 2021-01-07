@@ -38,4 +38,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def method_missing(method_name)
+    "hello"
+  end
+
 end

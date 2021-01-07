@@ -1,0 +1,14 @@
+
+<table> 
+  <tr>
+    <th>Band name</th>
+    <th></th>
+  </tr>
+  <% bands.each do |band| %>
+    <tr>
+    <td><a href="<%=band_url(band)%>"> <%= band.name %> </a> </td>
+    <td><a href="<%=show_bands_albums_url(band)%>"> [||||||||]</a>
+  </tr>
+<% end %>
+
+</table>
