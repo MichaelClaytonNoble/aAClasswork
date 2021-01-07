@@ -38,7 +38,19 @@
   }
 }
 
-.left-nav > ul > li:hover,
-.right-nav > ul > li:last-of-type:hover {
-
+.left-nav > ul > li:hover{
+  color: lightgray;
 }
+.right-nav > ul > li:last-of-type:hover {
+  background-color: #004558;
+  border: #020241;
+  color: navajowhite;
+}
+
+
+
+
+
+
+
+
