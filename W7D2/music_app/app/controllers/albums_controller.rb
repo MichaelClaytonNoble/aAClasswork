@@ -11,6 +11,8 @@ class AlbumsController < ApplicationController
     render :show_bands_albums
   end
   def new
+    @album = Album.new
+    render :new
   end
 
   def create
@@ -28,5 +30,9 @@ class AlbumsController < ApplicationController
   private
   def find_album
     Album.find_by(id: params[:id])
+  end
+
+  def album_params
+  
   end
 end

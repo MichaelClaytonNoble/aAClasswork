@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/bands/:band_id/bands_albums', to: 'albums#show_bands_albums', as: 'show_bands_albums'
 
-  resources :albums, only: [:create, :edit, :show, :update, :destroy]
+  resources :albums, only: [:new, :edit, :show, :update, :destroy]
 
   root controller: :users, action: :new
 

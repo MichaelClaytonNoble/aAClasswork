@@ -1,0 +1,10 @@
+
+
+<% if type == :new %>
+  <% action_url =  "/bands/#{params[:band_id]}/albums" %>
+
+<% else %>
+  <% action_url = edit_album_url(album)%>
+<% end %>
+
+
