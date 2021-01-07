@@ -36,7 +36,19 @@ RSpec.describe User, type: :model do
 
       expect(user.password).not_to eq('password')
     end
+    it 'ensures password is encrypted using BCrypt' do 
+      expect(BCrypt::Password).to receive(:create).with('abcdef')
+      FactoryBot.build(:user, password: 'abcdef')
+    end
   end
+
+  describe '#ensure_session_token' do 
+    it 'assigns a session token if none is given' do 
+      expect(FactoryBot.build(:user).session_token).not_to be_nil
+    end
+  end
+
+
 
 end
 
