@@ -1,17 +1,31 @@
 .main-nav {
-
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+  margin-top: 5px;
 }
 
 .left-nav > ul,
 .right-nav > ul {
-
+  > li{
+    padding: 6px;
+    font-size: 10px;
+  }
 }
 
 .left-nav {
-
+  display: flex;
+  justify-content: space-evenly;
+  
   > ul {
-    > li {
-
+    display: flex;
+    flex-direction: row;
+    > li {    
+      cursor: pointer;
+      margin-right: 5px;
+      margin-left: 15px;
+      font-weight: bold;
     }
   }
 
@@ -21,34 +35,42 @@
 }
 
 .right-nav  {
-
+  
   > ul {
+    display: flex;
+    flex-direction: row;
+    > li:hover {
+      background-color: #004558;
+      border: #020241;
+      color: whitesmoke;
+    }
 
     > li {
-  
+      border-radius: 2px;
+      margin-left: 5px;
+      background-color: #3a6990;
+      color: whitesmoke;
+      font-weight: bold;
+      font-family: '$sans-serif', Times, sans-serif;
+      cursor: pointer;
     }
 
     > li:last-of-type {
-  
+      background-color: white;
+      color: rgb(58, 58, 58);
     }
   }
   
   i {
-
+    font-size: 12px;
   }
 }
 
-.left-nav > ul > li:hover{
-  color: lightgray;
+.left-nav > ul > li:hover, 
+.right-nav > ul > li:last-of-type:hover{
+  background-color: lightestgray;
+  color: black;
 }
-.right-nav > ul > li:last-of-type:hover {
-  background-color: #004558;
-  border: #020241;
-  color: navajowhite;
-}
-
-
-
 
 
 
