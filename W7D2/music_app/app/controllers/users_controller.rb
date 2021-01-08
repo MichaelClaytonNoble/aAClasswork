@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to user_url(@user) #update this with correct page
     else
-      flash.now[:error] = @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       render :new
     end
   end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     if @user
       render :show
     else
-      flash[:error] = ["User not found"]
+      flash[:errors] = ["User not found"]
       redirect_to new_user_url #update this with correct page
     end
   end

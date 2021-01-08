@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       login(@user)
       redirect_to user_url(@user) #update this with correct page
     else                      
-      flash[:error] = ["INVALID CREDENTIALS"]
+      flash[:errors] = ["INVALID CREDENTIALS"]
       redirect_to new_session_url
     end
   end

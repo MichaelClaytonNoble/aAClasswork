@@ -46,7 +46,6 @@ class BandsController < ApplicationController
     albums = @band.albums
     @band.update(band_params)
     if @band.save
-      # albums.update_all(band_id: @band.id)
       redirect_to band_url(@band)
     else
       render :edit
@@ -59,7 +58,8 @@ class BandsController < ApplicationController
       @band.destroy
       render :destroy
     else
-      flash[:error] = ["Band Does Not Exist, Cannot Delete"]
+      flash[:errors] = @band.errors.full_messages
+      redirect_to bands_url
     end
   end
   

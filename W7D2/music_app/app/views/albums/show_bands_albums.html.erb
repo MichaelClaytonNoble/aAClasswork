@@ -1,5 +1,5 @@
 
-<% if @albums.empty? %>
+<% if @albums.nil? || @albums.empty?%>
 <%    display = "This band has no albums"  %>
 <% else %>
 <%    display = @albums.first.band.name %>
@@ -8,4 +8,4 @@
 
 <h1> <%= display %> </h1>
 
-<%=render "display_album", albums: @albums%>
+<%=render "display_album", albums: @albums if @albums%>

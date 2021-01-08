@@ -27,25 +27,3 @@ header > h1 {
   font-size: 45px;
   font-family: 'Yellowtail';
 }
-
-nav.button_navigation {
-    display: flex;
-    flex-direction: column;
-    justify-self: right;
-    margin-right: 0px;
-    margin-left: auto;
-    align-items:flex-end;
-}
-
-div.header_div {
-    display: flex;
-}
-
-nav.button_navigation > a {
-    position: relative;
-}
-
-.render_page{
-
-  position: absolute;
-}

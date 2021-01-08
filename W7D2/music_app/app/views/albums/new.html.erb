@@ -2,29 +2,22 @@
 
 <h3> Enter new album information </h3>
 
-<form action="" method="POST">
-
-
-  <label for="band_name"> Select a band </label>
-  <select name="album[band_id]" id="band_name">
-    <option value="blank" selected disabled>
-    <%Band.all.each do |band|%>
-      <option value="<%=band.name%>"></option>
-    <% end %>
-  </select>
   <br>
-  <label for="title"> Enter album title 
-  <input type="text" name="album[title]" value="<%=album.title%>">
+<form action="<%=band_albums_url(params[:band_id])%>" method="POST">
+
+  <label for="title"> Enter album title: 
+    <input type="text" name="album[title]" value="<%=@album.title%>">
   </label>
 
   <label for="not_live">Not Live</label>
-  <input type="radio" name="album[live]" id="not_live" value=<%=false%>>
+  <input type="radio" name="album[live]" id="not_live" value=<%=false%> <%=@album.live == false ? 'checked' : '' %> >
+
   <label for="live">Live</label>
-  <input type="radio" name="album[live]" id="live" value=<%=true%>>
+  <input type="radio" name="album[live]" id="live" value=<%=true%> <%= @album.live == true ? 'checked' : '' %>>
 
 
   <label for="year"> Enter year
-  <input type="text" value="<%=album.year%>" name=album[year]>
+  <input type="text" value="<%=@album.year%>" name=album[year]>
   </label>
 
   <input type="submit" value="Add new album">

@@ -1,0 +1,31 @@
+
+<form action="<%=album_url%>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label for="band_name"> Select a band </label>
+  <select name="album[band_id]" id="band_name">
+    <option value="blank" selected disabled>
+    <%Band.all.each do |band|%>
+      <option value="<%=band.id%>" <%=@album.band.id == band.id ? 'Selected' : '' %>><%=band.name%></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="title"> Enter album title 
+  <input type="text" name="album[title]" value="<%=@album.title%>">
+  </label>
+
+  <label for="not_live">Not Live</label>
+  <input type="radio" name="album[live]" id="not_live" value=<%=false%> <%=@album.live == false ? 'checked' : '' %> >
+
+  <label for="live">Live</label>
+  <input type="radio" name="album[live]" id="live" value=<%=true%> <%= @album.live == true ? 'checked' : '' %>>
+
+  <label for="year"> Enter year
+  <input type="text" value="<%=@album.year%>" name=album[year]>
+  </label>
+
+  <input type="submit" value="Add new album">
+
+  </form>
+
+  <%=delete_button%>

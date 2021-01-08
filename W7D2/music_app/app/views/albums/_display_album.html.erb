@@ -10,8 +10,9 @@
   <% albums.each do |album|%>
   <tr>
     <td><a href="<%=band_url(album.band)%>"><%= album.band.name %></a></td>
-    <td><%= album.title %></td>
+    <td><a href="<%=album_url(album)%>"><%= album.title %></a></td>
     <td><%= album.year %></td>
     <td><%= album.live %></td>
   </tr>
   <% end %>
+
