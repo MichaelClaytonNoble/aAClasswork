@@ -1,11 +1,12 @@
 .sections-nav {
     border-top: 2px, gray;
-    display: flex;
     position: relative;
+    display: flex;
 }
 ul {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
