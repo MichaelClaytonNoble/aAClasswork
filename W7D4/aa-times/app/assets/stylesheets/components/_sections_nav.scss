@@ -1,0 +1,23 @@
+.sections-nav {
+    border-top: 2px, gray;
+    display: flex;
+    position: relative;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+ul li {
+    padding-right: 10px;
+    :hover {
+        background-color: lightgray;
+    }
+}
+
+.all {
+    padding-right: 0px;
+    text-decoration: underline;
+}
