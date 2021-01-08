@@ -1,3 +1,5 @@
+require_relative '../lib/populator_fix.rb'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -29,3 +31,13 @@ album_6 = Album.create!(band_id: band_3.id, title: "Yo! Bum Rush the Show", year
 album_7 = Album.create!(band_id: band_4.id, title: "My Own Prison", year: 1997, live: false)
 album_8 = Album.create!(band_id: band_5.id, title: "Learning to Breathe", year: 2000, live: false)
 album_9 = Album.create!(band_id: band_6.id, title: "How to Dismantle an Atomic Bomb", year: 2004, live: true)
+
+
+Track.destroy_all
+
+# Track.populate 50 do |t|
+#   t.title = Faker::Music.
+# end
+
+# use populate and faker to generate tracks 
+
