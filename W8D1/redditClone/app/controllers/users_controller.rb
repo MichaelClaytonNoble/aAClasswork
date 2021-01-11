@@ -1,16 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_logged_in, only: [:show, :index]
 
-  def index
-    @users = User.all
-    render :index
-  end 
-
-  def show
-    @user = User.find_by(id: params[:id])
-    render :show
-  end
-
   def new
     @user = User.new
     render :show
