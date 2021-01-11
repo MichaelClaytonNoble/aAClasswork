@@ -7,7 +7,7 @@ class User < ApplicationRecord
     after_initialize :ensure_sesion_token!
 
     def reset_session_token!
-        # current_user.reset_sesstion_token!
+        current_user.reset_sesstion_token!
         self.save!
         self.session_token
     end

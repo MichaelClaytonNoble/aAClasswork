@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_logged_in, only: [:show, :index]
 
   def index
     @users = User.all
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      #login(@user)
+      login(@user)
       redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
