@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :subs
   resource :session, only: [:new, :create, :destroy]
-
+  resources :posts, only: [:show, :new, :create, :edit, :update, :destroy]
 end
