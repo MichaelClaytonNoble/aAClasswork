@@ -6,6 +6,11 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_sesion_token!
 
+    has_many :subs,
+    primary_key: :id,
+    foreign_key: :moderator_id,
+    class_name: :Sub
+
     def reset_session_token!
         current_user.reset_sesstion_token!
         self.save!
