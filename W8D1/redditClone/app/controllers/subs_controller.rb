@@ -1,5 +1,4 @@
 class SubsController < ApplicationController
-  before_action :require_moderator, only: [:edit]
 
   def index
     @subs = Sub.all
@@ -27,6 +26,7 @@ class SubsController < ApplicationController
   end
 
   def edit
+   require_moderator
    @sub = Sub.find_by(id: params[:id])
    render :edit
   end
@@ -46,4 +46,8 @@ class SubsController < ApplicationController
   def sub_params
     params.require(:sub).permit(:title, :description)
   end 
+
+  def require_moderator
+    redirect_to subs_url unless current_user = User.find_by(id: self.moderator_id)
+  end
 end

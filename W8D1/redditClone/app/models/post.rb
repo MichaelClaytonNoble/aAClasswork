@@ -28,5 +28,9 @@ class Post < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
+  has_many :associated_subs,
+    foreign_key: :sub_id,
+    class_name: :PostSub
+
 
 end
