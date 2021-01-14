@@ -25,7 +25,6 @@ function exponent_a(base, exp){
 function exponent_b(base, exp){
   if (exp === 0 ){
     return 1;
-<<<<<<< HEAD
   } else if (base%2 === 0) {
 
     let root = exponent_b(base, exp/2);
@@ -76,7 +75,6 @@ function mergesort(arr){
 
   return merge(leftSorted, rightSorted);
 }
-=======
   } else if (exp%2 === 0) {
     let root = exponent_b(base, exp/2);
     return root * root; 
@@ -109,4 +107,3 @@ function deepDup(arr) {
  *  arr.map {|el|  el.is_a?(Array) ? deep_dup(el) : el}
  * end
  */
->>>>>>> 6070b988313fbfa93af05c2e49aca2896b78f476
