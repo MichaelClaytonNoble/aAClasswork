@@ -1,0 +1,27 @@
+/* PHASE 0: Sidebar */
+
+
+.profile-picture{
+  display: block;
+  margin-top: -120px;
+  position: relative;
+}
+
+.profile-picture img{
+  border: black solid 2px; 
+  border-radius: 3%;
+}
+
+.profile-nav ul{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-nav ul li{
+  border-top: black solid 1px;
+  padding: 5px;
+  font-weight: bold;
+}
+.profile-nav ul li:last-child{
+  border-bottom: black solid 1px;
+}
