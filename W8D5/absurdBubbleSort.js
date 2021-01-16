@@ -1,5 +1,4 @@
 const readline = require("readline");
-
 const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -14,7 +13,6 @@ function askIfGreaterThan(el1, el2, callback) {
     }
   });
 }
-
 function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
   if (i < arr.length - 1) {
     let swap = false;
@@ -24,7 +22,6 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
         madeAnySwaps = true;
       }
-
       innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop);
     });
   } else {
@@ -32,19 +29,31 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
     outerBubbleSortLoop(madeAnySwaps);
   }
 }
-
-innerBubbleSortLoop([1, 0], 0, false, function (x) {
-  console.log(x);
+function absurdBubbleSort(arr, sortCompletionCallback) {
+  function outerBubbleSortLoop(madeAnySwaps) {
+    // Begin an inner loop if you made any swaps. Otherwise, call
+    
+    if (madeAnySwaps){
+      innerBubbleSortLoop(arr, 0, false, outerBubbleSortLoop);
+    }else {
+    //`sortCompletionCallback`.
+      sortCompletionCallback(arr);
+    }
+  }
+  // Kick the first outer loop off, starting `madeAnySwaps` as true.
+  outerBubbleSortLoop(true);
+}
+absurdBubbleSort([3, 2, 1], function (arr) {
+  console.log("Sorted array: " + JSON.stringify(arr));
   reader.close();
 });
-/* If i < arr.length - 1, it should call askIfGreaterThan, asking the user to compare arr[i] and arr[i + 1].
-For a callback to askIfGreaterThan, pass in an anonymous helper function. This should:
-Take in a single argument: isGreaterThan; askIfGreaterThan will pass either true or false as this argument.
-Perform a swap of elements in the array if necessary.
-Call innerBubbleSortLoop again, this time for i + 1. It should pass madeAnySwaps. Update madeAnySwaps if you did swap.
-Call outerBubbleSortLoop if i == (arr.length - 1). It should receive madeAnySwaps as an argument.
- */
 
-// askIfGreaterThan(5, 1, (x)=>{console.log(x)});
+// sorted = false;
+// while (!sorted){
 
-// function absurdBubbleSort(arr, sortCompletionCallback) {}
+//   sort(){
+//     sorted = true
+//     do we need to bubble
+//     sorted = false if we bubbled 
+//   }
+// }
