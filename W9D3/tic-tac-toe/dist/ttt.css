@@ -1,0 +1,20 @@
+.ttt-board{
+    display: flex;
+    flex-wrap: wrap;
+    width: 680px;
+
+    list-style: none;
+}
+
+.ttt-cell{
+    width: 220px;
+    background-color: gray;
+    height: 220px;
+    border: 2px solid black; 
+}
+
+
+li:hover {
+    background-color: yellow;
+}
+
