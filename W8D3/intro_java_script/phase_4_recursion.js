@@ -94,8 +94,103 @@ function deepDup(arr){
   });
 }
 
-let x = [1,2,4,[3,4,4,[6]],[4]];
-console.log(x);
+// let x = [1,2,4,[3,4,4,[6]],[4]];
+// console.log(x);
+
+
+
+function bsearch(arr, target){
+  if(arr.length === 0){
+    return -1;
+  }
+
+  let mid = Math.trunc(arr.length/2);
+  let mid_el = arr[mid];
+
+  if (mid_el === target){
+
+    return mid;
+  }
+  if (mid_el > target){
+    let left = arr.slice(0,mid);
+    return bsearch(left, target);
+  }
+  else { //mid_el > target
+    let right = arr.slice(mid+1);
+    let rightSearch = bsearch(right, target);
+    if( rightSearch === -1){
+      return -1;
+    }
+    else{
+      return mid+1+rightSearch;
+    }
+  }
+}
+
+// let array = [1,3,4,5,8,9,22,42,122];
+// let x = bsearch(array, 42);
+// let x1= bsearch(array, 3);
+// let x2= bsearch(array, 8)
+// let x3= bsearch(array,1);
+// let x4= bsearch(array, 122);
+
+// console.log (`42 is at index ${x} in [${array}]`);
+// console.log (`3 is at index ${x1} in [${array}]`);
+// console.log (`8 is at index ${x2} in [${array}]`);
+// console.log (`1 is at index ${x3} in [${array}]`);
+// console.log (`122 is at index ${x4} in [${array}]`);
+
+
+
+function mergeSort(arr){
+
+  if (arr.length < 2){
+    return arr;
+  }
+  let mid = Math.trunc(arr.length/2);
+
+  let left = arr.slice(0,mid);
+  let right = arr.slice(mid);
+
+  let left_sorted = mergeSort(left);
+  let right_sorted = mergeSort(right);
+  
+  console.log(`left: ${left_sorted}, right: ${right_sorted}`);
+  return merge(left_sorted, right_sorted);
+}
+
+function merge(left, right) {
+  const merged = [];
+
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] < right[0]){
+      merged.push(left.shift());
+    }
+    else{ 
+      merged.push(right.shift());
+    }
+  }
+  return merged.concat(left, right);
+}
+// [4, 90, 78, 67, 56, 4]                  [73, 23, 1, 2, 4, 0]
+// [4, 90, 78] |[67, 56, 4]                  [73, 23, 1, 2]  [4, 0]
+// [4, 90] [78] |[67, 56] [4]                [73, 23, 1] [2]    
+// [4] [90] 
+
+
+// let unsorted = [4,90,78,67,56,4,73,23,1,2,4,0];
+// let sorted = mergeSort(unsorted);
+
+// console.log(sorted);
+
+function subsets(arr){
+
+  
+}
+
+
+
+
 
 
 
