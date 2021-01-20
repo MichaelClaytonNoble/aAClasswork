@@ -183,9 +183,21 @@ function merge(left, right) {
 
 // console.log(sorted);
 
-function subsets(arr){
 
-  
+/// I DON T UNDERSTAND THIS SOLUTION 
+// function subsets(arr){
+//   if(arr.length === 1){
+//     return arr;
+//   }
+//   if(arr.length < 1){
+//     return [];
+//   }
+//   for(let start = 0; start<arr.length; start++){
+
+//   }
+
+//   subsets(arr.slice(1));
+
 }
 
 
