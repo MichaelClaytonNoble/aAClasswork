@@ -3,10 +3,22 @@ class View {
     this.game = game;
     this.$el= $el;
     this.setupBoard();
+    this.bindEvents(); ///=/////
   }
 
   bindEvents() {
-    //listener 
+    
+    // this.$el.on("click", "li", ( event => {
+    //   const $square = $(event.currentTarget);
+    //   this.makeMove($square);
+    // }));
+
+
+    this.$el.on('click', 'li', ( (e) => {
+
+
+      // makeMove(e.target);
+    }))
 
     //on('click', Game.playMove(position))
     //grab input element and save as jQuery object 
