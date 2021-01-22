@@ -12,4 +12,5 @@ class FollowToggle{
   }
 }
 
+
 module.exports = FollowToggle; //makes this class requirable 
