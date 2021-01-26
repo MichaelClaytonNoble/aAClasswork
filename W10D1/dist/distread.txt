@@ -1,0 +1,4 @@
+holds all of the distribution code 
+
+index.html
+main.js 'bundle'

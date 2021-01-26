@@ -1,0 +1,7 @@
+contains all the javascript 'src' files
+
+contains entry point file
+index.js 
+
+contains other files that will be 'bundled' by webpack 
+
