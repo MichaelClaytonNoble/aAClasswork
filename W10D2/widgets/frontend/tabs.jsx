@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 
 class Tabs extends React.Component{
 
-  constructor(){
-    super();
-    this.state = ({ selectedTab: 0});
+  constructor(props){
+    super(props);
+    this.state = ({ tabIndex: 0});
   }
+
 
   render(){
-    return (<div>
-
-    </div>);
+    return (<div></div>);
   }
+}
 
+class Header extends React.Component{
+  
 }
 
 export default Tabs;
