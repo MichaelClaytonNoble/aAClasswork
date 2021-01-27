@@ -26,11 +26,23 @@ class Clock extends React.Component{
     const seconds = this.state.date.getSeconds();
     const minutes = this.state.date.getMinutes();
     const hours = this.state.date.getHours();
+    const day = this.state.date.getDay();
+    const date = this.state.date.getDate();
+    const month = this.state.date.getMonth();
+    const year = this.state.date.getFullYear();
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
 
     return (
-    <div>
-      <h1>Clock!!!!!!!!!!!!!</h1>
-      <h2>{hours} : {minutes} : {seconds}</h2>
+    <div className="clock-widget">
+        <div className="time">
+          <span id="time1">Time:</span> <span id="time2"> {hours}:{minutes}:{seconds} PDT</span>
+        </div>
+        <br />
+        <div className="date">
+          <span id="date1">Date:</span> <span id="date2">{days[day]} {months[month]} {date} {year}</span>
+        </div>
     </div>);
   }
 
