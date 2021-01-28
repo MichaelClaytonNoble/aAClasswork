@@ -16,15 +16,7 @@ export default class Board extends React.Component {
                   return (
                   <div className="row-div" key={i}>
                     {row.map( (tile, j)=> {
-                        if (j%3 === 0) {
-                            tile.plantBomb();
-                            tile.explored = true;
-                        }
-
-                        if (j%2 === 0 && i%2 === 0) {
-                            tile.flagged = true;
-                        }
-                      return <span className="tile" key={j}><Tile tile={tile} updateBoard={this.props.updateBoard}/></span>
+                      return <Tile tile={tile} updateGame={this.props.updateGame} key={j}/>
                     })}
                   </div>)
                 })

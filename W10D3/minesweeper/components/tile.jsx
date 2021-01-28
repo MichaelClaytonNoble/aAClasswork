@@ -1,28 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom"
 
-const Tile = (props) => {
-    const tile = props.tile;
-    
+
+export default class Tile extends React.Component{
+  constructor (props){
+    super(props); 
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.props.updateGame(this.props.tile, true);
+
+  }
+
+  render(){
+    const tile = this.props.tile;
+    let symbol;
     if (tile.flagged) {
-        return("🏳️‍🌈")
+        symbol ="🏳️‍🌈"
     }
 
     if (tile.explored) {
         let count = tile.adjacentBombCount()
         if (tile.bombed) {
-            return("💣");
+            symbol ="💣";
         }
         if (count > 0) {
-            return (`${count}`);
+            symbol = `${count}`;
         }
-        return ("▩");
+        symbol = "▩";
     }
 
     if (!tile.explored) {
-        return("▩");
+        symbol ="▩";
     }
 
+    //set up event listener
+    return <span className="tile" key={this.props.key} onClick={this.handleClick}>{symbol}</span>
+  }
 }
-
-export default Tile;
