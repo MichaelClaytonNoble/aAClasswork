@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import addTodos from './actions/todos_action';
+import {removeTodo, addTodo} from './actions/todo_action';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -10,6 +11,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
   console.log("to do list");
   window.store = configureStore();
   window.addTodos = addTodos;
+  window.addTodo = addTodo;
+  window.removeTodo = removeTodo;
 
 });
 
