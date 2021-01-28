@@ -10,13 +10,21 @@ export default class Board extends React.Component {
     
     render () {
         return(
-            <div>
+            <div className="main-board-div">
               {
                 this.props.currentBoard.map( (row, i) => {
                   return (
-                  <div key={i}>
+                  <div className="row-div" key={i}>
                     {row.map( (tile, j)=> {
-                      return <span key={j}><Tile tile={tile} updateBoard={this.props.updateBoard}/></span>
+                        if (j%3 === 0) {
+                            tile.plantBomb();
+                            tile.explored = true;
+                        }
+
+                        if (j%2 === 0 && i%2 === 0) {
+                            tile.flagged = true;
+                        }
+                      return <span className="tile" key={j}><Tile tile={tile} updateBoard={this.props.updateBoard}/></span>
                     })}
                   </div>)
                 })
