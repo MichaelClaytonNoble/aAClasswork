@@ -5,6 +5,7 @@ import addTodos from './actions/todos_action';
 import {removeTodo, addTodo} from './actions/todo_action';
 import {addStep, addSteps, removeStep} from './actions/step_action';
 import Root from './components/root';
+import {allTodos} from './reducers/selectors'
 
 document.addEventListener("DOMContentLoaded", ()=>{
   windowStuff();
@@ -25,5 +26,6 @@ const windowStuff = ()=>{
   window.addStep = addStep;
   window.addSteps = addSteps;
   window.removeStep = removeStep;
+  window.allTodos = allTodos;
   console.log("to do list");
 }
