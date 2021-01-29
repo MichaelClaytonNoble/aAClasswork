@@ -4,4 +4,4 @@ const addTodos = (todos) => ({
     type: ADD_TODOS,
     todos
 })
-export default addTodos;
+export default addTodos; 
