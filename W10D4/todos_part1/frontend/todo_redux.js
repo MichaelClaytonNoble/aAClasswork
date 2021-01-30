@@ -12,9 +12,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const store = configureStore();
   window.store = store;
 
-
   const content = document.getElementById("content");
-
   ReactDOM.render(<Root store={store}/>, content);
 });
 
@@ -29,3 +27,4 @@ const windowStuff = ()=>{
   window.allTodos = allTodos;
   console.log("to do list");
 }
+
