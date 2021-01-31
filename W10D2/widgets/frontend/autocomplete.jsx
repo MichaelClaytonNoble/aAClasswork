@@ -31,18 +31,20 @@ class Autocomplete extends React.Component{
   }
   render(){
     return (
-    <div className="autocomplete-widget">
-      
-      <input value={this.state.inputVal} onChange={this.updateInput} placeholder="search..."></input>
+      <div>
+        <h1>Autocomplete</h1>
+        <div className="autocomplete-widget">
+          <input value={this.state.inputVal} onChange={this.updateInput} placeholder="search..."></input>
 
-      <ul>
-        {
-          this.state.found.map( (name_, i)=>{
-            return <li key={i} onClick={this.updateInputOnClick}> {name_}</li>
-          })
-        }
-      </ul>
+          <ul>
+            {
+              this.state.found.map( (name_, i)=>{
+                return <li key={i} onClick={this.updateInputOnClick}> {name_}</li>
+              })
+            }
+          </ul>
 
+        </div>
     </div>)
   }
 }

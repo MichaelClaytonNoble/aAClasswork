@@ -11,7 +11,9 @@ const autoNames = ["Hasret", "Harpreet", "Kiara", "Mako", "Trudy"];
 function Root(){
 
   return (<div>
+    <h1>Clock</h1>
     <Clock />
+    <h1>Weather</h1>
     <Weather />
     <div className="interactive" > 
       <Tabs tabInfo={tabInfo} />

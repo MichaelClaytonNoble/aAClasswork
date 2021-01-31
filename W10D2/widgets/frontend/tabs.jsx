@@ -19,17 +19,18 @@ class Tabs extends React.Component{
     const {tabIndex} = this.state;
     const currentTab = this.props.tabInfo[tabIndex];
     return (
-
-      <div className="tab-widget">
-        <ul className="tab-header">
-          {this.props.tabInfo.map( (tab,i) => {
-            return <h1 onClick={this.switchTab} key={i} data-id={i}>{tab.title}</h1>
-          })}
-          
-        </ul>
-        <article className="tab-content">{currentTab.content}</article>
+      <div>
+        <h1>Tabs</h1>
+        <div className="tab-widget">
+          <ul className="tab-header">
+            {this.props.tabInfo.map( (tab,i) => {
+              return <h1 onClick={this.switchTab} key={i} data-id={i}>{tab.title}</h1>
+            })}
+            
+          </ul>
+          <article className="tab-content">{currentTab.content}</article>
         </div>
-      );
+      </div>);
   }
 }
 

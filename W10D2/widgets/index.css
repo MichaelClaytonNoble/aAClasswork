@@ -126,3 +126,8 @@ ul{
 .autocomplete-widget li{
   cursor: pointer;  
 }
+
+#interactive-title{
+  display: flex;
+  align-items: space-between;
+}
