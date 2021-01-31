@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class Clock extends React.Component{
-
   constructor(){
     super();
     this.state = {date: new Date()};
@@ -15,7 +14,6 @@ class Clock extends React.Component{
   //how often is unmount being called ? 
   componentWillUnmount(){
     clearInterval(this.intervalId);
-    debugger;
   }
 
   tick(){
