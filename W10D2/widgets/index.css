@@ -80,3 +80,29 @@ ul{
   text-align: center;
   border: 1px solid black;
 }
+
+
+.weather-widget{
+
+  background-color: lightblue;
+  margin: 0 20px 20px 20px ;
+  padding: 10px;
+  height: 94px;
+  width: 550px;
+  display: flex;
+  border: solid 2px black;
+  flex-direction: column;
+  text-align: center;
+  font-size: large;
+}
+
+.interactive{
+  margin: 0 20px 20px 20px ;
+  padding: 10px;
+  height: 94px;
+  width: 550px;
+  display: flex;
+  /* border: solid 2px black; */
+  flex-direction: row;
+  justify-content: space-between;
+}

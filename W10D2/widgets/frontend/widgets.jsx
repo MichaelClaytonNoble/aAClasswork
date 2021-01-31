@@ -13,7 +13,9 @@ function Root(){
   return (<div>
     <Clock />
     <Weather />
-    <Tabs tabInfo={tabInfo} />
+    <div className="interactive" > 
+      <Tabs tabInfo={tabInfo} />
+    </div>
   </div>);
 }
 
