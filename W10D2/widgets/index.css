@@ -106,3 +106,23 @@ ul{
   flex-direction: row;
   justify-content: space-between;
 }
+
+.autocomplete-widget{
+  height: 140px;
+  width: 185px;
+  background-color: magenta;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  border: solid 1px black;
+}
+
+.autocomplete-widget > ul{
+  width: 100%;
+  padding: 0px; 
+  list-style-type: square;
+  padding-left: 20px;
+}
+.autocomplete-widget li{
+  cursor: pointer;  
+}

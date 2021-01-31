@@ -3,11 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Clock from './clock';
 import Tabs from './tabs'; 
-import Weather from './weather'
-
+import Weather from './weather';
+import Autocomplete from './autocomplete';
 
 const tabInfo = [{ title: "Tab 1", content: "First" }, { title: "Tab 2", content: "Second" }, { title: "Tab 3", content: "Third" }];
-
+const autoNames = ["Hasret", "Harpreet", "Kiara", "Mako", "Trudy"];
 function Root(){
 
   return (<div>
@@ -15,6 +15,7 @@ function Root(){
     <Weather />
     <div className="interactive" > 
       <Tabs tabInfo={tabInfo} />
+      <Autocomplete names={autoNames}/>
     </div>
   </div>);
 }
