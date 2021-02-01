@@ -8,7 +8,7 @@ const mapStateToProps = (state) =>({
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveTodo: todo => dispatch(receiveTodo(todo))
+  addTodo: todo => dispatch(addTodo(todo))
 });
 
 export default connect(
