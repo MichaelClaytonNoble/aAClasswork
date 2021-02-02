@@ -4,20 +4,22 @@ import TodoForm from '../todo_list/todo_form'
 
 //TodoList component will display the items in the todo list 
 
-const TodoList = ({todos, receiveTodo})=>{
+const TodoList = (props)=>{
 
   return (
     <div id="todo-list">
 
       <ul> 
         {
-          todos.map( (todo, i)=> {
-            return <TodoListItem todo={todo} key={i}/>
+          props.todos.map( (todo, i)=> {
+            return (
+            <TodoListItem todo={todo} key={i} removeTodo={props.removeTodo} receiveTodo={props.receiveTodo}/>
+            )
           })
         }
       </ul>
 
-      <TodoForm receiveTodo={receiveTodo} />
+      <TodoForm receiveTodo={props.receiveTodo} />
     </div>
 
   );

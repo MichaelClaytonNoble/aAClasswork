@@ -22,9 +22,9 @@ const mapStateToProps = (state) =>{
 //create an action dispatcher 
 //accepts a dispatch 
 const mapDispatchToProps = (dispatch) => {
-
   return {
-    receiveTodo: (todo)=>dispatch(todoActions.receiveTodo(todo))
+    receiveTodo: (todo)=>dispatch(todoActions.receiveTodo(todo)),
+    removeTodo: (todo)=>dispatch(todoActions.removeTodo(todo))
   }
 };
 
