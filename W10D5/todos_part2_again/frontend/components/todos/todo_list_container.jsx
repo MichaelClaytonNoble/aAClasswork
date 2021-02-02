@@ -9,13 +9,13 @@ import {connect } from 'react-redux';
 //import the presentational component to connect 
 import TodoList from './todo_list';
 import * as todoActions from '../../actions/todo_actions';
-
+import {allTodos} from '../../reducers/selectors';
 //map slice of state to props object 
-//here we are accepting state as an argument 
+//here we are accepting state as an argument to use in our call to our selector
 //returning a prop with slice of state 
 const mapStateToProps = (state) =>{
   return {
-    todos: state.allTodos
+    todos: allTodos(state)
   };
 };
 

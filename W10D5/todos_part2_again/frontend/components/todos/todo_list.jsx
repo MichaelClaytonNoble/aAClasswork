@@ -1,3 +1,19 @@
+import React from 'react';
+import TodoListItem from '../todo_list/todo_list_item';
 //TodoList component will display the items in the todo list 
 
-export default ()=><h3>Todo List goes here!</h3>
+const TodoList = ({todos})=>{
+
+  return (
+    <ul> 
+      {
+        todos.map( (todo, i)=> {
+          return <TodoListItem todo={todo} key={i}/>
+        })
+      }
+    </ul>
+
+  );
+}
+
+export default TodoList; 
