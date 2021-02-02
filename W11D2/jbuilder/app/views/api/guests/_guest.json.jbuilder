@@ -1,2 +1,2 @@
 
-json.partial! 'api/guests', guest: "hello"
+json.extract! guest, :name, :age, :id, :favorite_color

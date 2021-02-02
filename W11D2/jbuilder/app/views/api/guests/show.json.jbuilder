@@ -1,2 +1,4 @@
-json.extract! @guest, :name, :age, :id, :favorite_color
+
+json.partial! 'api/guests/guest', guest: @guest
+#json.gifts 
 
