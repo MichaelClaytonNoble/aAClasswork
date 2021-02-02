@@ -1,2 +1,2 @@
 
-json.partial! 'guest', guest: @guest
+json.partial! 'api/guests', guest: "hello"
