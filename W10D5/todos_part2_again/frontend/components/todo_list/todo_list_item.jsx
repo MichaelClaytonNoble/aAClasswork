@@ -31,10 +31,14 @@ class TodoListItem extends React.Component{
       done = "undo";
     }
     return (
-      <li>{todo.title}
-        <button onClick={this.handleUpdateDone}>{done}</button>      
-        <button onClick={this.handleRemoveTodo}>Remove Todo</button>      
-      </li>
+        <div id="todo-list-item">
+          <h3>{this.props.todo.title}</h3>
+          <div>{this.props.todo.body}</div>
+          <div>{this.props.todo.done}</div>
+
+          <button onClick={this.handleUpdateDone}>{done}</button>      
+          <button onClick={this.handleRemoveTodo}>Remove Todo</button>      
+        </div>
     );
   }
 }
