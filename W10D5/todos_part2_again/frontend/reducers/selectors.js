@@ -9,10 +9,9 @@
 //here we are transforming an object filled with todos into an array
 //so that components can easily manipulate this data 
 
-const allTodos = (state) => {
-
+//we will be using this selector on the TodoList 
+export const allTodos = (state) => {
   return Object.values(state.todos);
 }
 
-export default allTodos;
 window.allTodos = allTodos;
