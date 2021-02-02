@@ -1,11 +1,11 @@
 import React from 'react';
-
+import uniqueId from '../../util/unique_id';
 class TodoForm extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
-      id: Math.floor(Math.random() * 1000),
+      id: uniqueId(),
       title: '',
       body: ''
     };
@@ -21,7 +21,7 @@ class TodoForm extends React.Component{
 
     this.props.receiveTodo(this.state);
     this.setState({
-      id: Math.floor(Math.random() * 1000),
+      id: uniqueId(),
       title: '',
       body: ''
     });
