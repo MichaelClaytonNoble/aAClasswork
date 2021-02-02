@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :todos, only: [:index, :show, :create, :destroy, :update]
   end
 
+  
   root to: "static_pages#root" 
 
 end
