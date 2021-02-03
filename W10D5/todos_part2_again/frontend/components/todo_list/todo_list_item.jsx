@@ -1,5 +1,6 @@
 
 import React from 'react';
+import TodoDetailView from '../todo_view/todo_detail_view'; 
 
 class TodoListItem extends React.Component{
   constructor(props){
@@ -25,19 +26,15 @@ class TodoListItem extends React.Component{
     this.setState;
   }
   render(){
+
     const {todo} = this.props;
-    let done = "do";
-    if(this.props.todo.done){
-      done = "undo";
-    }
+    let {done} = todo; 
+
     return (
         <div id="todo-list-item">
-          <h3>{this.props.todo.title}</h3>
-          <div>{this.props.todo.body}</div>
-          <div>{this.props.todo.done}</div>
-
-          <button onClick={this.handleUpdateDone}>{done}</button>      
-          <button onClick={this.handleRemoveTodo}>Remove Todo</button>      
+        <h3>{todo.title}</h3>
+          <TodoDetailView todo={todo} removeTodo={this.removeTodo}/>
+          <button onClick={this.handleUpdateDone}>{done ? "undo" : "do"}</button>      
         </div>
     );
   }
