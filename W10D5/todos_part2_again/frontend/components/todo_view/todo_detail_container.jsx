@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 const mapDispatchToProps = (dispatch) => {
   return ({
     removeTodo: (todo) => dispatch(todoActions.removeTodo(todo)),
-    receiveSteps: (step) => dispatch(stepActions.receiveSteps)
+    receiveSteps: (step) => dispatch(stepActions.receiveSteps(step))
   });
 }
 
