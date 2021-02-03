@@ -43,7 +43,6 @@ class StepForm extends React.Component{
     return (
 
       <form onSubmit={this.handleSubmit}>
-        Step Form
         <label>Title: 
         <input type="text" onChange={this.handleTitle} value={this.state.title}/>
         </label>

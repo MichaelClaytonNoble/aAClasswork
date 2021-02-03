@@ -22,7 +22,7 @@ class StepListItem extends React.Component{
             <li> 
               <div>{step.title}</div>
               <div>{step.body}</div>
-              <button onClick={this.toggleDone}>{done? "undo step": "do step"}</button>
+              <button onClick={this.toggleDone}>{step.done? "undo step": "do step"}</button>
               <button onClick={this.props.removeStep}>Remove</button>
             </li>
           
