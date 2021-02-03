@@ -8,6 +8,7 @@ class Api::PokemonController < ApplicationController
 
   def show
     @pokemon = Pokemon.find_by(id: params[:id])
+    @moves = @pokemon.moves
     render :show
   end
 
