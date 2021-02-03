@@ -1,22 +1,26 @@
-import React from 'react';
-import receiveStep from '../../action/step_action'; 
+
+import {receiveStep} from '../../actions/step_actions'; 
 import { stepsByTodoId } from '../../reducers/selectors';
+import {connect } from 'react-redux'; 
+import StepList from './step_list';
 
 
 const mapStateToProps = (state, {todo_id})=>{
   return {
-    steps: stepsByTodoId(state, todo_id)
+    steps: stepsByTodoId(state, todo_id),
+    todo_id
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
 
   return({
-    receiveStep: (step)=>dispatch(state, receiveStep(step))
+    receiveStep: (step)=>dispatch(receiveStep(step))
   })
 
 }
 
-const SteplistContainer = connect(mapStateToProps,mapDispatchToProps)(StepList); 
+const StepListContainer = connect(mapStateToProps,mapDispatchToProps)(StepList); 
 
-export default SteplistContainer;
+
+export default StepListContainer;
