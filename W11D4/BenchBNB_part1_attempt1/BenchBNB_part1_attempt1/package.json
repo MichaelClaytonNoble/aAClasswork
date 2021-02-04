@@ -1,5 +1,31 @@
 {
-  "name": "BenchBNB_part1_attempt1",
-  "private": true,
-  "dependencies": {}
+  "name": "benchbnb_part1_attempt1",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "webpack": "webpack --mode=development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "webpack": "^4.46.0"
+  }
 }
