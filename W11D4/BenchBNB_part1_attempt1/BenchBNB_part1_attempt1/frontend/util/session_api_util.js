@@ -1,24 +1,28 @@
 
 
 
-const signup = ()=>{
-  return ($.ajax({
-  method:"",
-  url: ""
-  
-  }));
+export const signup = ()=>{
+  return (
+    $.ajax({
+      method:"POST",
+      url: "/api/users"
+    })
+  );
 }
-const login = ()=>{
-  return ($.ajax({
-  method:"",
-  url: ""
-
-}));
+export const login = (user)=>{
+  return (
+    $.ajax({
+      method:"POST",
+      url: "/api/session"
+    })
+  );
 }
-const logout = ()=>{
-  return ($.ajax({
-  method:"",
-  url: ""
 
-}));
+export const logout = ()=>{
+  return (
+    $.ajax({
+      method:"DELETE",
+      url: "/api/session"
+    })
+  );
 }
