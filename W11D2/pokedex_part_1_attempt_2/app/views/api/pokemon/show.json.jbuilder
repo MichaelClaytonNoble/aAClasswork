@@ -1,3 +1,4 @@
+#json.key_format! camelize: :lower
 json.pokemon do 
   json.set! @poke.id do
     json.extract! @poke, :id, :name, :attack, :defense, :poke_type
