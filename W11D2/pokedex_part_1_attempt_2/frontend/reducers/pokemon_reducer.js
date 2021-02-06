@@ -1,4 +1,4 @@
-import * as pokemon_action_types from '../actions';
+import * as pokemon_action_types from '../actions/pokemon_actions';
 
 export const pokemonReducer = (state, action) =>{
 

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as pokemon_actions from './actions/pokemon_actions';
-import * as api_utils from './util/api_util';
+
+import {configureStore} from './store/store';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
-
+  const store = configureStore(); 
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   const root = document.getElementById("root");
   ReactDOM.render(<div>hello</div>, root);
 });
