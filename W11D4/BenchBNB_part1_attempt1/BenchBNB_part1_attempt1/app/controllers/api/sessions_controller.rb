@@ -9,6 +9,13 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
       login(@user)
+      debugger
+      if(logged_in?)
+        console.log("logged in");
+      else
+        console.log("logged out");
+      end
+      
       redirect_to users_url
     else
       flash.now[:errors]=['Invalid username or password']
