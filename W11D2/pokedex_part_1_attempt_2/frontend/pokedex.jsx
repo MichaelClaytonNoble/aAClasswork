@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {fetchAllPokemon} from './util/api_util';
 import {configureStore} from './store/store';
 
+
 document.addEventListener("DOMContentLoaded", ()=>{
 
   const store = configureStore(); 

@@ -1,11 +1,12 @@
 import { receiveAllPokemon } from '../actions/pokemon_actions';
-import * as api_utils from '../util/api_util';
 
-export const requestAllPokemon = () => (dispatch) => {
 
-  return (
-    api_utils.fetchAllPokemon().then( pokemon => dispatch(receiveAllPokemon(pokemon)))
-  );
-}
+const thunk = ({ dispatch, getState }) => next => action => {
+  if (typeof action === 'function') {
+    return action(dispatch, getState);
+  }
+  return next(action);
+};
 
-window.requestAllPokemon = requestAllPokemon;
+export default thunk;
+
