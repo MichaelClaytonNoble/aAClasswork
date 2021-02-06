@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {fetchAllPokemon} from './util/api_util';
 import {configureStore} from './store/store';
-
+import {selectAllPokemon} from './reducers/selectors';
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   window.dispatch = store.dispatch;
 
   window.fetchAllPokemon = fetchAllPokemon;
+  window.selectAllPokemon = selectAllPokemon;
 
 
   const root = document.getElementById("root");
