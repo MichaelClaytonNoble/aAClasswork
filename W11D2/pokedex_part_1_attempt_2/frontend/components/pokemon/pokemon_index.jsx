@@ -13,7 +13,6 @@ class PokemonIndex extends React.Component{
     return (
       <ul className="pokemon-index">
       {
-        
         pokemon.map( poke => {
           return (
             <li key={poke.id} className="pokemon-index-item">
