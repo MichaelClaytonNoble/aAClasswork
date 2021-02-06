@@ -8,6 +8,3 @@ export const fetchAllPokemon = ()=>{
     })
   );
 }
-
-
-window.fetchAllPokemon = fetchAllPokemon;
