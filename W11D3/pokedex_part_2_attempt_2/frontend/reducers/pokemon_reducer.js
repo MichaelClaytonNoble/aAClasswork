@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_POKEMON, RECEIVE_ONE_POKEMON } from './../actions/pokemon_actions';
+import { RECEIVE_ALL_POKEMON, RECEIVE_ONE_POKEMON } from '../actions/pokemon_actions';
 
 
 const pokemonReducer = (state = {}, action) => {
@@ -10,6 +10,7 @@ const pokemonReducer = (state = {}, action) => {
     const nextState = Object.assign({}, state);
     nextState[action.payload.pokemon.id] = action.payload.pokemon;
     return nextState; 
+    
   default:
     return state;
   }
