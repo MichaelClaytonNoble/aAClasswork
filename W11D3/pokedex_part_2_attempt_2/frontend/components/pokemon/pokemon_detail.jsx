@@ -13,3 +13,4 @@ const PokemonDetail = ({poke}) => {
 } 
 
 
+export default PokemonDetail;
