@@ -212,7 +212,8 @@ var PokemonIndex = /*#__PURE__*/function (_React$Component) {
 
   _createClass(PokemonIndex, [{
     key: "componentDidMount",
-    value: function componentDidMount() {// this.props.requestAllPokemon()
+    value: function componentDidMount() {
+      this.props.requestAllPokemon();
     }
   }, {
     key: "render",
@@ -540,14 +541,20 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*!****************************************!*\
   !*** ./frontend/reducers/selectors.js ***!
   \****************************************/
-/*! exports provided: selectAllPokemon */
+/*! exports provided: selectAllPokemon, selectPokemonMoves */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectAllPokemon", function() { return selectAllPokemon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectPokemonMoves", function() { return selectPokemonMoves; });
 var selectAllPokemon = function selectAllPokemon(state) {
   return Object.values(state.entities.pokemon);
+};
+var selectPokemonMoves = function selectPokemonMoves(state) {
+  return Object.values(state.entities.moves).map(function (move) {
+    return move.name;
+  });
 };
 
 /***/ }),
