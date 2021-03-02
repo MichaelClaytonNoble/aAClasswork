@@ -22,10 +22,6 @@
 // stepper([2, 3, 1, 1, 0, 4, 7, 8])    // => false, there is no way to step to the end
 function stepper(nums) {
 
-  //table 
-  // [ [1],[2],[3]],[[1]], null, [ [1],[2],[3],[4],[5],], [[][][][][][][][][][]]
-
-  let table = new Array(); 
 }
 
 
@@ -39,7 +35,17 @@ function stepper(nums) {
 //
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6 
+
 function maxNonAdjacentSum(nums) {
+
+  let table = new Array(nums.length);
+
+  //each number has 2 possibilities
+  //skip the right neighbor
+
+  //skip the left neighbor 
+
+  
 
 }
 

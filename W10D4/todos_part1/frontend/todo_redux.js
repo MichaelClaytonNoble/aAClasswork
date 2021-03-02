@@ -7,6 +7,12 @@ import {addStep, addSteps, removeStep} from './actions/step_action';
 import App from './components/app.jsx'
 
 document.addEventListener("DOMContentLoaded", ()=>{
+<<<<<<< Updated upstream
+=======
+  windowStuff();
+  const store = configureStore();
+  window.store = store;
+>>>>>>> Stashed changes
 
   const content = document.getElementById("content");
   ReactDOM.render(<App/>, content);
