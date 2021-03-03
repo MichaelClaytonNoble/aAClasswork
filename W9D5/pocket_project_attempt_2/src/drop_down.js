@@ -25,10 +25,23 @@ function dogLinkCreator(){
 
 function attachDogLinks(){
   const dropDown = document.querySelector(".drop-down-dog-list"); 
-  console.log(dropDown); 
-  dogLinkCreator().forEach( link =>{
+    dropDown.classList.add('hidden');
+    dogLinkCreator().forEach( link =>{
     dropDown.appendChild(link); 
   }); 
 
 }
 attachDogLinks(); 
+
+let dogLinkBar = document.querySelector(".drop-down-dog-nav"); 
+dogLinkBar.addEventListener("mouseenter", handleEnter);
+dogLinkBar.addEventListener("mouseleave", handleLeave);
+
+ 
+function handleEnter(){
+  document.querySelector('.drop-down-dog-list').classList.remove('hidden'); 
+}
+
+function handleLeave(){
+  document.querySelector('.drop-down-dog-list').classList.add('hidden'); 
+}
